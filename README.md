@@ -2,12 +2,14 @@
 Модуль, реализующий функции API сервиса www.virustotal.com (3 версии), доступных с использованием открытого ключа.
 Подробное описание API смотри на: https://developers.virustotal.com/v3.0/reference#getting-started
 
+## Пример использования
+
 ```python
    from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
       ...
-   vt_files = VirusTotalAPIFiles(<Insert API key string here>)
+   vt_files = VirusTotalAPIFiles('<API key string>')
    try:
-       result = vt_files.upload(<Insert faile name here>)
+       result = vt_files.upload('<faile name>')
    except VirusTotalAPIError as err:
        print(err, err.err_code)
    else:
