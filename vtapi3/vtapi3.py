@@ -8,7 +8,7 @@
 
    Example usage:
 
-   from vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
+   from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
       ...
    vt_files = VirusTotalAPIFiles(<Insert API key string here>)
    try:
