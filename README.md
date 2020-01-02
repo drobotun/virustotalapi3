@@ -5,6 +5,7 @@
 ## Пример использования
 
 ```python
+   import json
    from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
       ...
    vt_files = VirusTotalAPIFiles('<API key string>')
