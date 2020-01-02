@@ -8,9 +8,9 @@
    import json
    from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
       ...
-   vt_files = VirusTotalAPIFiles('<API key string>')
+   vt_files = VirusTotalAPIFiles('<ключ доступа к API>')
    try:
-       result = vt_files.upload('<faile name>')
+       result = vt_files.upload('<путь к файлу>')
    except VirusTotalAPIError as err:
        print(err, err.err_code)
    else:
