@@ -36,9 +36,9 @@ VirusTotal API 3 версия
 
 .. code-block:: json
 
-{
-  "data": {
-    "type": "analysis",
-    "id": "NjY0MjRlOTFjMDIyYTkyNWM0NjU2NWQzYWNlMzFmZmI6MTQ3NTA0ODI3Nw=="
-  }
-}
+    {
+      "data": {
+        "type": "analysis",
+        "id": "NjY0MjRlOTFjMDIyYTkyNWM0NjU2NWQzYWNlMzFmZmI6MTQ3NTA0ODI3Nw=="
+      }
+    }
