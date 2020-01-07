@@ -34,7 +34,7 @@ TEST_PROXI = {'http': '10.10.1.10:3128',
               'https': '10.10.1.10:1080',
               'ftp': '10.10.1.10:3128'}
 
-PRINT_RESULT = True
+PRINT_RESULT = False
 
 
 class TestFile(unittest.TestCase):
