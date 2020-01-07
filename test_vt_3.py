@@ -5,7 +5,7 @@ import errno
 from vtapi3.vtapi3 import (VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
                     VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError)
 
-API_KEY = '44cfe8669293bd3466e4a6556585c548a2380ff410d747e30f513b1c2aa97378'
+API_KEY = '4e3202fdbe953d628f650229af5b3eb49cd46b2d3bfe5546ae3c5fa48b554e0c'
 
 TEST_FILE = 'test_file.txt'
 
@@ -19,8 +19,7 @@ TEST_URL = 'https://xakep.ru/author/drobotun/'
 TEST_URL_ID_BASE64 = 'aHR0cHM6Ly94YWtlcC5ydS9hdXRob3IvZHJvYm90dW4v'
 TEST_URL_ID_SHA256 = '1a565d28f8412c3e4b65ec8267ff8e77eb00a2c76367e653be774169ca9d09a6'
 
-#TEST_DOMAIN ='www.virustotal.com'
-TEST_DOMAIN ='www.xakep.ru'
+TEST_DOMAIN ='www.virustotal.com'
 
 TEST_IP = '216.239.38.21'
 
@@ -66,6 +65,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ENOENT)
 
+    @unittest.skip('The test requires a valid api key')
     def test_upload(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.upload(TEST_FILE)
@@ -93,6 +93,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_upload_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -111,6 +112,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_files_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_upload_url(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_upload_url()
@@ -129,6 +131,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_upload_url_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -147,6 +150,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_files_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_id(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_report(TEST_FILE_ID_SHA256)
@@ -156,6 +160,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files.get_last_http_error()
         self.assertEqual(http_err, vt_files.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_wrong_id(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_report('')
@@ -173,6 +178,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_report_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -191,15 +197,17 @@ class TestFile(unittest.TestCase):
         http_err = vt_files_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_files_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_analyse(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
-        result = vt_files.analyse('99017f6eebbac24f351415dd410d512d')#TEST_FILE_ID_SHA256)
+        result = vt_files.analyse(TEST_FILE_ID_SHA256)
         if PRINT_RESULT:
             result = json.loads(result)
             print('\nResult: ', json.dumps(result, sort_keys=False, indent=4))
         http_err = vt_files.get_last_http_error()
         self.assertEqual(http_err, vt_files.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_analyse_wrong_id(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.analyse('')
@@ -217,6 +225,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_analyse_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -235,6 +244,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_files_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_comments(TEST_FILE_ID_SHA256)
@@ -244,6 +254,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files.get_last_http_error()
         self.assertEqual(http_err, vt_files.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments_wrong_id(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_comments('')
@@ -261,6 +272,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_comments_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -279,6 +291,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_files_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_votes(TEST_FILE_ID_SHA256)
@@ -288,6 +301,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files.get_last_http_error()
         self.assertEqual(http_err, vt_files.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes_wrong_id(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_votes('')
@@ -305,6 +319,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_votes_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -323,6 +338,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_files_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_relationship(TEST_FILE_ID_EICAR)
@@ -332,6 +348,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files.get_last_http_error()
         self.assertEqual(http_err, vt_files.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship_wrong_id(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_relationship('')
@@ -349,6 +366,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_relationship_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -367,6 +385,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_files_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_behaviours(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_behaviours(TEST_SANDBOX_ID)
@@ -376,6 +395,7 @@ class TestFile(unittest.TestCase):
         http_err = vt_files.get_last_http_error()
         self.assertEqual(http_err, vt_files.HTTP_FORBIDDEN_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_behaviours_wrong_id(self):
         vt_files = VirusTotalAPIFiles(API_KEY)
         result = vt_files.get_behaviours('')
@@ -393,6 +413,7 @@ class TestFile(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_behaviours_connection_error(self):
         err_code = 0
         vt_files = VirusTotalAPIFiles(API_KEY, None, TEST_PROXI)
@@ -426,6 +447,7 @@ class TestUrls(unittest.TestCase):
             print('\nURL identifier: ', url_id)
         self.assertEqual(url_id, TEST_URL_ID_SHA256)
 
+    @unittest.skip('The test requires a valid api key')
     def test_upload(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.upload(TEST_URL)
@@ -435,6 +457,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_upload_wrong_url(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.upload('')
@@ -453,6 +476,7 @@ class TestUrls(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_upload_connection_error(self):
         err_code = 0
         vt_urls = VirusTotalAPIUrls(API_KEY, None, TEST_PROXI)
@@ -471,6 +495,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_urls_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_id_base64(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_report(TEST_URL_ID_BASE64)
@@ -480,6 +505,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_id_sha256(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_report(TEST_URL_ID_SHA256)
@@ -489,6 +515,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_wrong_id(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_report('')
@@ -506,6 +533,7 @@ class TestUrls(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_report_connection_error(self):
         err_code = 0
         vt_urls = VirusTotalAPIUrls(API_KEY, None, TEST_PROXI)
@@ -524,6 +552,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_urls_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_analyse_id_base64(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.analyse(TEST_URL_ID_BASE64)
@@ -533,6 +562,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_analyse_id_sha256(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.analyse(TEST_URL_ID_SHA256)
@@ -542,6 +572,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_analyse_wrong_id(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.analyse('')
@@ -559,6 +590,7 @@ class TestUrls(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_analyse_connection_error(self):
         err_code = 0
         vt_urls = VirusTotalAPIUrls(API_KEY, None, TEST_PROXI)
@@ -577,6 +609,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_urls_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_comments(TEST_URL_ID_BASE64)
@@ -586,6 +619,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments_wrong_id(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_comments('')
@@ -603,6 +637,7 @@ class TestUrls(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_comments_connection_error(self):
         err_code = 0
         vt_urls = VirusTotalAPIUrls(API_KEY, None, TEST_PROXI)
@@ -621,6 +656,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_urls_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_votes(TEST_URL_ID_BASE64)
@@ -630,6 +666,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes_wrong_id(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_votes('')
@@ -647,6 +684,7 @@ class TestUrls(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_votes_connection_error(self):
         err_code = 0
         vt_urls = VirusTotalAPIUrls(API_KEY, None, TEST_PROXI)
@@ -665,6 +703,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_urls_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_network_location(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_network_location(TEST_URL_ID_BASE64)
@@ -674,6 +713,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_network_location_wrong_id(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_network_location('')
@@ -691,6 +731,7 @@ class TestUrls(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_network_location_connection_error(self):
         err_code = 0
         vt_urls = VirusTotalAPIUrls(API_KEY, None, TEST_PROXI)
@@ -709,6 +750,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_urls_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_relationship(TEST_URL_ID_BASE64)
@@ -718,6 +760,7 @@ class TestUrls(unittest.TestCase):
         http_err = vt_urls.get_last_http_error()
         self.assertEqual(http_err, vt_urls.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship_wrong_id(self):
         vt_urls = VirusTotalAPIUrls(API_KEY)
         result = vt_urls.get_relationship('')
@@ -735,6 +778,7 @@ class TestUrls(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_relationship_connection_error(self):
         err_code = 0
         vt_urls = VirusTotalAPIUrls(API_KEY, None, TEST_PROXI)
@@ -756,6 +800,7 @@ class TestUrls(unittest.TestCase):
 
 class TestDomain(unittest.TestCase):
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_report(TEST_DOMAIN)
@@ -765,6 +810,7 @@ class TestDomain(unittest.TestCase):
         http_err = vt_domains.get_last_http_error()
         self.assertEqual(http_err, vt_domains.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_wrong_id(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_report('')
@@ -782,6 +828,7 @@ class TestDomain(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_report_connection_error(self):
         err_code = 0
         vt_domains = VirusTotalAPIDomains(API_KEY, None, TEST_PROXI)
@@ -800,6 +847,7 @@ class TestDomain(unittest.TestCase):
         http_err = vt_domains_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_domains_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_comments(TEST_DOMAIN)
@@ -809,6 +857,7 @@ class TestDomain(unittest.TestCase):
         http_err = vt_domains.get_last_http_error()
         self.assertEqual(http_err, vt_domains.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments_wrong_id(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_comments('')
@@ -826,6 +875,7 @@ class TestDomain(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_comments_connection_error(self):
         err_code = 0
         vt_domains = VirusTotalAPIDomains(API_KEY, None, TEST_PROXI)
@@ -844,6 +894,7 @@ class TestDomain(unittest.TestCase):
         http_err = vt_domains_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_domains_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_votes(TEST_DOMAIN)
@@ -853,6 +904,7 @@ class TestDomain(unittest.TestCase):
         http_err = vt_domains.get_last_http_error()
         self.assertEqual(http_err, vt_domains.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes_wrong_id(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_votes('')
@@ -870,6 +922,7 @@ class TestDomain(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_votes_connection_error(self):
         err_code = 0
         vt_domains = VirusTotalAPIDomains(API_KEY, None, TEST_PROXI)
@@ -888,6 +941,7 @@ class TestDomain(unittest.TestCase):
         http_err = vt_domains_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_domains_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_relationship(TEST_DOMAIN)
@@ -897,6 +951,7 @@ class TestDomain(unittest.TestCase):
         http_err = vt_domains.get_last_http_error()
         self.assertEqual(http_err, vt_domains.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship_wrong_id(self):
         vt_domains = VirusTotalAPIDomains(API_KEY)
         result = vt_domains.get_relationship('')
@@ -914,6 +969,7 @@ class TestDomain(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_relationship_connection_error(self):
         err_code = 0
         vt_domains = VirusTotalAPIDomains(API_KEY, None, TEST_PROXI)
@@ -935,6 +991,7 @@ class TestDomain(unittest.TestCase):
 
 class TestIPAddresses(unittest.TestCase):
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_report(TEST_IP)
@@ -944,6 +1001,8 @@ class TestIPAddresses(unittest.TestCase):
         http_err = vt_ip.get_last_http_error()
         self.assertEqual(http_err, vt_ip.HTTP_OK)
 
+    
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_wrong_id(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_report('')
@@ -961,6 +1020,7 @@ class TestIPAddresses(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_report_connection_error(self):
         err_code = 0
         vt_ip = VirusTotalAPIIPAddresses(API_KEY, None, TEST_PROXI)
@@ -979,6 +1039,7 @@ class TestIPAddresses(unittest.TestCase):
         http_err = vt_ip_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_ip_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_comments(TEST_IP)
@@ -988,6 +1049,7 @@ class TestIPAddresses(unittest.TestCase):
         http_err = vt_ip.get_last_http_error()
         self.assertEqual(http_err, vt_ip.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_comments_wrong_id(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_comments('')
@@ -1005,6 +1067,7 @@ class TestIPAddresses(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_comments_connection_error(self):
         err_code = 0
         vt_ip = VirusTotalAPIIPAddresses(API_KEY, None, TEST_PROXI)
@@ -1023,6 +1086,7 @@ class TestIPAddresses(unittest.TestCase):
         http_err = vt_ip_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_ip_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_votes(TEST_IP)
@@ -1032,6 +1096,7 @@ class TestIPAddresses(unittest.TestCase):
         http_err = vt_ip.get_last_http_error()
         self.assertEqual(http_err, vt_ip.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_votes_wrong_id(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_votes('')
@@ -1049,6 +1114,7 @@ class TestIPAddresses(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_votes_connection_error(self):
         err_code = 0
         vt_ip = VirusTotalAPIIPAddresses(API_KEY, None, TEST_PROXI)
@@ -1067,6 +1133,7 @@ class TestIPAddresses(unittest.TestCase):
         http_err = vt_ip_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_ip_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_relationship(TEST_IP)
@@ -1076,6 +1143,7 @@ class TestIPAddresses(unittest.TestCase):
         http_err = vt_ip.get_last_http_error()
         self.assertEqual(http_err, vt_ip.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_relationship_wrong_id(self):
         vt_ip = VirusTotalAPIIPAddresses(API_KEY)
         result = vt_ip.get_relationship('')
@@ -1093,6 +1161,7 @@ class TestIPAddresses(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_relationship_connection_error(self):
         err_code = 0
         vt_ip = VirusTotalAPIIPAddresses(API_KEY, None, TEST_PROXI)
@@ -1114,6 +1183,7 @@ class TestIPAddresses(unittest.TestCase):
 
 class TestAnalyses(unittest.TestCase):
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_file_id(self):
         vt_analyses = VirusTotalAPIAnalyses(API_KEY)
         result = vt_analyses.get_report(TEST_FILE_ID)
@@ -1123,6 +1193,7 @@ class TestAnalyses(unittest.TestCase):
         http_err = vt_analyses.get_last_http_error()
         self.assertEqual(http_err, vt_analyses.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_url_id(self):
         vt_analyses = VirusTotalAPIAnalyses(API_KEY)
         result = vt_analyses.get_report(TEST_URL_ID)
@@ -1132,6 +1203,7 @@ class TestAnalyses(unittest.TestCase):
         http_err = vt_analyses.get_last_http_error()
         self.assertEqual(http_err, vt_analyses.HTTP_OK)
 
+    @unittest.skip('The test requires a valid api key')
     def test_get_report_wrong_object_id(self):
         vt_analyses = VirusTotalAPIAnalyses(API_KEY)
         result = vt_analyses.get_report('')
@@ -1149,6 +1221,7 @@ class TestAnalyses(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @unittest.skip('The test takes a long time')
     def test_get_report_connection_error(self):
         err_code = 0
         vt_analyses = VirusTotalAPIAnalyses(API_KEY, None, TEST_PROXI)
