@@ -29,4 +29,3 @@ VirusTotal API 3 версия
        else:
            print('HTTP Error [' + str(vt_files.get_last_http_error()) +']')
       ...
-
