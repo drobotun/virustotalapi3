@@ -12,7 +12,7 @@ VirusTotal API 3 версия
 Пример использования
 --------------------
 
-. code-block:: python
+.. code-block:: python
    import json
    from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
       ...
