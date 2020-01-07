@@ -7,7 +7,7 @@ from vtapi3.vtapi3 import (VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPID
 
 API_KEY = '44cfe8669293bd3466e4a6556585c548a2380ff410d747e30f513b1c2aa97378'
 
-TEST_FILE = 'd:/test_file.txt'
+TEST_FILE = 'test_file.txt'
 
 TEST_FILE_ID_EICAR = '275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f'
 
@@ -35,7 +35,7 @@ TEST_PROXI = {'http': '10.10.1.10:3128',
               'https': '10.10.1.10:1080',
               'ftp': '10.10.1.10:3128'}
 
-PRINT_RESULT = True
+PRINT_RESULT = False
 
 
 class TestFile(unittest.TestCase):
