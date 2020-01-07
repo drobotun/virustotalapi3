@@ -1,5 +1,7 @@
 # VirusTotal API 3 версия
 
+![GitHub](https://img.shields.io/github/license/drobotun/virustotalapi3?style=plastic)
+
 Модуль, реализующий функции API сервиса www.virustotal.com (3 версии), доступных с использованием открытого ключа.
 Подробное описание API смотри на: https://developers.virustotal.com/v3.0/reference#getting-started
 
