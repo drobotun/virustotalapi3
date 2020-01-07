@@ -1,0 +1,1 @@
+This is a test file for VirusTotal API validation
