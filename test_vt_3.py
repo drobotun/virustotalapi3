@@ -5,7 +5,7 @@ import errno
 from vtapi3.vtapi3 import (VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
                     VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError)
 
-API_KEY = '4e3202fdbe953d628f650229af5b3eb49cd46b2d3bfe5546ae3c5fa48b554e0c'
+API_KEY = '<Insert VirusTotal API key>'
 
 TEST_FILE = 'test_file.txt'
 
