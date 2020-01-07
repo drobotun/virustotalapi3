@@ -30,3 +30,15 @@ VirusTotal API 3 версия
        else:
            print('HTTP Error [' + str(vt_files.get_last_http_error()) +']')
        ...
+
+Ответ сервера
+-------------
+
+.. codeblock:: json
+
+{
+  "data": {
+    "type": "analysis",
+    "id": "NjY0MjRlOTFjMDIyYTkyNWM0NjU2NWQzYWNlMzFmZmI6MTQ3NTA0ODI3Nw=="
+  }
+}
