@@ -34,7 +34,7 @@ VirusTotal API 3 версия
 Ответ сервера
 -------------
 
-.. codeblock:: json
+.. code-block:: json
 
 {
   "data": {
