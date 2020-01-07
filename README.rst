@@ -41,6 +41,7 @@ VirusTotal API 3 версия
     {
       "data": {
         "type": "analysis",
+        <snip>
         "id": "NjY0MjRlOTFjMDIyYTkyNWM0NjU2NWQzYWNlMzFmZmI6MTQ3NTA0ODI3Nw=="
       }
     }
