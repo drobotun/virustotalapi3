@@ -4,7 +4,7 @@
    More information: https://developers.virustotal.com/v3.0/reference#getting-started
 
    Author: Evgeny Drobotun (c) 2019
-   License: MIT ()
+   License: MIT (https://github.com/drobotun/virustotalapi3/blob/master/LICENSE)
 
    Example usage:
 
