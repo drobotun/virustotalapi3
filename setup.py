@@ -1,9 +1,13 @@
 from setuptools import setup, find_packages
 import vtapi3
 
+with open('README.rst', 'r', encoding='utf-8') as readme_file:
+    readme = readme_file.read()
+
 setup(
     name='vtapi3',
     version=vtapi3.__version__,
+    long_description=readme,
     author='Evgeny Drobotun',
     author_email='drobotun@xakep.ru',
     url='https://github.com/drobotun/virustotalapi3',

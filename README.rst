@@ -7,9 +7,20 @@ VirusTotal API 3 версия
     :target: http://doge.mit-license.org
 .. image:: https://travis-ci.org/drobotun/virustotalapi3.svg?branch=master
     :target: https://travis-ci.org/drobotun/virustotalapi3
+.. image:: https://img.shields.io/pypi/v/vtapi3
+    :target: https://pypi.org/project/vtapi3/
+.. image:: https://img.shields.io/pypi/pyversions/vtapi3
+    :target: https://pypi.org/project/vtapi3/
 
 Модуль, реализующий функции API сервиса www.virustotal.com (3 версии), доступных с использованием открытого ключа.
 Подробное описание API смотри на: https://developers.virustotal.com/v3.0/reference
+
+Установка пакета
+----------------
+
+.. code-block:: bash
+
+    $ pip install vtapi3
 
 Пример использования
 --------------------
