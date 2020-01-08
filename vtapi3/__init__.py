@@ -1,4 +1,4 @@
-__title__ = 'virustotalapi3'
+__title__ = 'vtapi3'
 __version__ = '1.0'
 __author__ = 'Evgeny Drobotun'
 __license__ = 'MIT'
