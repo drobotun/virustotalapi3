@@ -1,4 +1,5 @@
 .. image:: https://i.imgur.com/6nji8Ec.png
+    :target: https://www.virustotal.com
 
 VirusTotal API 3 версия
 =======================
@@ -76,7 +77,7 @@ VirusTotal API 3 версия
 .. code-block:: python
 
    import json
-   from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
+   from vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
       ...
    vt_files = VirusTotalAPIFiles('<ключ доступа к API>')
    try:
@@ -102,3 +103,5 @@ VirusTotal API 3 версия
         "type": "analysis",
         "id": "NjY0MjRlOTFjMDIyYTkyNWM0NjU2NWQzYWNlMzFmZmI6MTQ3NTA0ODI3Nw=="
       }
+    }
+    
