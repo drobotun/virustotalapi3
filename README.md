@@ -8,11 +8,8 @@
 Модуль, реализующий функции API сервиса www.virustotal.com (3 версии), доступных с использованием открытого ключа.
 Подробное описание API смотри на: https://developers.virustotal.com/v3.0/reference
 
-Пример использования
---------------------
-
-.. code-block:: python
-
+## Пример использования
+```python
    import json
    from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
       ...
@@ -29,15 +26,13 @@
        else:
            print('HTTP Error [' + str(vt_files.get_last_http_error()) +']')
        ...
-
-Ответ сервера
--------------
-
-.. code-block:: json
-
+```
+## Ответ сервера
+```json
     {
       "data": {
         "type": "analysis",
         "id": "NjY0MjRlOTFjMDIyYTkyNWM0NjU2NWQzYWNlMzFmZmI6MTQ3NTA0ODI3Nw=="
       }
     }
+```
