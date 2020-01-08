@@ -18,6 +18,7 @@ VirusTotal API 3 версия
 Реализованы следующие функции API VirusTotal:
 
 **Для файлов:**
+
 - **POST** /files
 - **GET** /files/upload_url
 - **GET** /files/{id}
@@ -30,6 +31,7 @@ VirusTotal API 3 версия
 - **GET** /file_behaviours/{sandbox_id}/pcap
 
 **Для URL:**
+
 - **POST** /urls
 - **GET** /urls/{id}
 - **POST** /urls/{id}/analyse
@@ -40,6 +42,7 @@ VirusTotal API 3 версия
 - **GET** /urls/{id}/network_location
 
 **Для доменов:**
+
 - **GET** /domains/{domain}
 - **GET** /domains/{domain}/comments
 - **POST** /domains/{domain}/comments
@@ -48,6 +51,7 @@ VirusTotal API 3 версия
 - **POST** /domains/{domain}/votes
 
 **Для IP-адресов:**
+
 - **GET** /domains/{domain}
 - **GET** /domains/{domain}/comments
 - **POST** /domains/{domain}/comments
@@ -56,6 +60,7 @@ VirusTotal API 3 версия
 - **POST** /domains/{domain}/votes
 
 **Анализ файлов и URL:**
+
 - **GET** /analyses/{id}
 
 Установка пакета
