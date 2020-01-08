@@ -20,8 +20,7 @@ VirusTotal API 3 версия
 
 **Для файлов:**
 
-- .. image:: https://i.imgur.com/4DykgkL.png
-/files
+- **POST** /files
 - **GET** /files/upload_url
 - **GET** /files/{id}
 - **POST** /files/{id}/analyse
