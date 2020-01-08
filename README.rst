@@ -1,12 +1,9 @@
-.. image:: https://i.imgur.com/6nji8Ec.png
+![](https://i.imgur.com/6nji8Ec.png)
 
-VirusTotal API 3 версия
-=======================
+# VirusTotal API 3 версия
 
-.. image:: https://img.shields.io/github/license/drobotun/virustotalapi3?style=flat
-    :target: http://doge.mit-license.org
-.. image:: https://travis-ci.org/drobotun/virustotalapi3.svg?branch=master
-    :target: https://travis-ci.org/drobotun/virustotalapi3
+[![](https://img.shields.io/github/license/drobotun/virustotalapi3?style=flat)](http://doge.mit-license.org)
+[![](https://travis-ci.org/drobotun/virustotalapi3.svg?branch=master)](https://travis-ci.org/drobotun/virustotalapi3)
 
 Модуль, реализующий функции API сервиса www.virustotal.com (3 версии), доступных с использованием открытого ключа.
 Подробное описание API смотри на: https://developers.virustotal.com/v3.0/reference
