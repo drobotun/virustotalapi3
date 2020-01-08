@@ -15,6 +15,49 @@ VirusTotal API 3 версия
 Модуль, реализующий функции API сервиса www.virustotal.com (3 версии), доступных с использованием открытого ключа.
 Подробное описание API смотри на: https://developers.virustotal.com/v3.0/reference
 
+Реализованы следующие функции API VirusTotal:
+
+**Для файлов:**
+- **POST** /files
+- **GET** /files/upload_url
+- **GET** /files/{id}
+- **POST** /files/{id}/analyse
+- **GET** /files/{id}/comments
+- **POST** /files/{id}/comments
+- **GET** /files/{id}/votes
+- **POST** /files/{id}/votes
+- **GET** /files/{id}/{relationship}
+- **GET** /file_behaviours/{sandbox_id}/pcap
+
+**Для URL:**
+- **POST** /urls
+- **GET** /urls/{id}
+- **POST** /urls/{id}/analyse
+- **GET** /urls/{id}/comments
+- **POST** /urls/{id}/comments
+- **GET** /urls/{id}/votes
+- **POST** /urls/{id}/votes
+- **GET** /urls/{id}/network_location
+
+**Для доменов:**
+- **GET** /domains/{domain}
+- **GET** /domains/{domain}/comments
+- **POST** /domains/{domain}/comments
+- **GET** /domains/{domain}/{relationship}
+- **GET** /domains/{domain}/votes
+- **POST** /domains/{domain}/votes
+
+**Для IP-адресов:**
+- **GET** /domains/{domain}
+- **GET** /domains/{domain}/comments
+- **POST** /domains/{domain}/comments
+- **GET** /domains/{domain}/{relationship}
+- **GET** /domains/{domain}/votes
+- **POST** /domains/{domain}/votes
+
+**Анализ файлов и URL:**
+- **GET** /analyses/{id}
+
 Установка пакета
 ----------------
 
