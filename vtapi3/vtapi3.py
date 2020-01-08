@@ -6,6 +6,9 @@
    Author: Evgeny Drobotun (c) 2019
    License: MIT (https://github.com/drobotun/virustotalapi3/blob/master/LICENSE)
 
+   Requirements:
+      $ pip install requests
+
    Example usage:
 
    from vtapi3.vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
