@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import vtapi3
 
 setup(
@@ -15,5 +15,5 @@ setup(
         'Programming Language :: Python :: 3.7',
     ],
     test_suite='test_vt_3',
-    packages=['vtapi3'],
+    packages=find_packages(),
     install_requires=['requests >= 2.22.0'])
