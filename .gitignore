@@ -43,8 +43,8 @@ coverage.xml
 .project
 .pydevproject
 .vs
-.sln
-.pyproj
+*.sln
+*.pyproj
 
 # Rope
 .ropeproject
