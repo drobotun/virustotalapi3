@@ -12,7 +12,6 @@ VirusTotal API 3 версия
     :target: https://pypi.org/project/vtapi3/
 .. image:: https://img.shields.io/pypi/pyversions/vtapi3
     :target: https://pypi.org/project/vtapi3/
-.. image:: https://img.shields.io/pypi/dm/vtapi3   :alt: PyPI - Downloads
 
 Модуль, реализующий функции API сервиса www.virustotal.com (3 версии), доступных с использованием открытого ключа.
 Подробное описание API смотри на: https://developers.virustotal.com/v3.0/reference
