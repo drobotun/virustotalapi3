@@ -52,7 +52,7 @@ Example response:
 """""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": {
