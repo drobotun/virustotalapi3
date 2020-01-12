@@ -6,7 +6,7 @@
 Welcome to vtapi3's documentation!
 ==================================
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    intro
    base_class
