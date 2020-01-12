@@ -16,7 +16,9 @@ VirusTotal API 3 version
     :target: https://virustotalapi3.readthedocs.io/
 
 The module that implements the service API functions www.virustotal.com (3 versions) available using the public key.
-For a detailed description of the API, see: https://developers.virustotal.com/v3.0/reference
+For a detailed description of the API, see: https://developers.virustotal.com/v3.0/reference.
+
+Article in the magazine "XAKEP": https://xakep.ru/2020/01/09/virustotal-api/#xakepcut
 
 The following VirusTotal API functions are implemented:
 
