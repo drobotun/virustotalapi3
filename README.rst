@@ -12,6 +12,8 @@ VirusTotal API 3 version
     :target: https://pypi.org/project/vtapi3/
 .. image:: https://img.shields.io/pypi/pyversions/vtapi3
     :target: https://pypi.org/project/vtapi3/
+.. image:: https://readthedocs.org/projects/virustotalapi3/badge/?version=latest
+    :target: https://virustotalapi3.readthedocs.io/
 .. image:: https://img.shields.io/pypi/dm/vtapi3
     :target: https://pypi.org/project/vtapi3/
 
