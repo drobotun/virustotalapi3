@@ -14,7 +14,7 @@ VirusTotal API 3 version
     :target: https://pypi.org/project/vtapi3/
 .. image:: https://readthedocs.org/projects/virustotalapi3/badge/?version=latest
     :target: https://virustotalapi3.readthedocs.io/
-.. image:: https://i.imgur.com/XcWaVFV.png
+.. image:: https://i.imgur.com/JtZ54GZ.png
     :target: https://xakep.ru/2020/01/09/virustotal-api/#xakepcut
 
 The module that implements the service API functions www.virustotal.com (3 versions) available using the public key.
