@@ -14,9 +14,14 @@ setup(
     long_description=readme + '\n\n' + history,
     author='Evgeny Drobotun',
     author_email='drobotun@xakep.ru',
-    url='https://github.com/drobotun/virustotalapi3',
+    url='https://github.com/drobotun/virustotalapi3/',
     zip_safe=False,
     license=vtapi3.__license__,
+    keywords='virustotal api',
+    project_urls={
+        'Documentation': 'https://virustotalapi3.readthedocs.io/',
+        'Source': 'https://github.com/drobotun/virustotalapi3/'
+    },
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.0',
