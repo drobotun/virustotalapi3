@@ -3,8 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to vtapi3's documentation!
-==================================
+vtapi3 - VirusTotal API in Python
+=================================
+
+This guide describes how to use the vtapi3 Python module.
+
 .. toctree::
    :maxdepth: 3
 
