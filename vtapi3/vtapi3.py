@@ -125,7 +125,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            Return:
               The SHA256, SHA1 or MD5 identifier of the file.
 
-           Raises:
+           Exception
               VirusTotalAPIError(File not found): In case the file is not found.
               VirusTotalAPIError(Permission error): In case do not have access rights to the file.
         """
@@ -153,7 +153,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
            VirusTotalAPIError(File not found): In case the file you want to upload to the server is
@@ -185,7 +185,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -203,7 +203,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             return response.content
 
     def get_report(self, file_id):
-        """Retrieve information about a file
+        """Retrieve information about a file.
 
         Args:
            file_id: SHA-256, SHA-1 or MD5 identifying the file (str).
@@ -211,7 +211,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
        Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -237,7 +237,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -265,7 +265,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -293,7 +293,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -322,7 +322,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -350,7 +350,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -384,7 +384,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -412,7 +412,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -467,7 +467,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            url: The URL for which you want to get the identifier (str).
 
         Return:
-           The identifier of the url, base64 encoded (str).
+           The identifier of the url, SHA256 encoded (str).
         """
         return hashlib.sha256(url.encode()).hexdigest()
 
@@ -480,7 +480,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -509,7 +509,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -537,7 +537,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -567,7 +567,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -597,7 +597,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -628,7 +628,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -658,7 +658,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -691,7 +691,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -723,7 +723,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -764,7 +764,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -792,7 +792,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -820,7 +820,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -850,7 +850,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -879,7 +879,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -907,7 +907,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -952,7 +952,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -980,7 +980,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -1008,7 +1008,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -1038,7 +1038,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -1067,7 +1067,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -1095,7 +1095,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
@@ -1134,7 +1134,7 @@ class VirusTotalAPIAnalyses(VirusTotalAPI):
         Return:
            The response from the server as a byte sequence.
 
-        Raises:
+        Exception
            VirusTotalAPIError(Connection error): In case of server connection errors
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """

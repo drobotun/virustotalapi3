@@ -1,17 +1,8 @@
-.. image:: https://i.imgur.com/6nji8Ec.png
-    :target: https://www.virustotal.com
+Introduction
+============
 
-VirusTotal API 3 version
-========================
-
-.. image:: https://img.shields.io/github/license/drobotun/virustotalapi3?style=flat
-    :target: http://doge.mit-license.org
-.. image:: https://travis-ci.org/drobotun/virustotalapi3.svg?branch=master
-    :target: https://travis-ci.org/drobotun/virustotalapi3
-.. image:: https://img.shields.io/pypi/v/vtapi3
-    :target: https://pypi.org/project/vtapi3/
-.. image:: https://img.shields.io/pypi/pyversions/vtapi3
-    :target: https://pypi.org/project/vtapi3/
+Overview
+--------
 
 The module that implements the service API functions www.virustotal.com (3 versions) available using the public key.
 For a detailed description of the API, see: https://developers.virustotal.com/v3.0/reference
@@ -109,3 +100,20 @@ License
 """""""
 
 MIT Copyright (c) 2020 Evgeny Drobotun
+
+Release History
+---------------
+
+1.0.2 (12.01.2020)
+""""""""""""""""""
+
+- Fixed errors in source comments.
+- Fixing README.rst for better PYPI presentation.
+- Fixing setup.py for better PYPI presentation.
+- README.rst translated into English.
+- Added two tests (``test_get_version_avi()`` and ``test_get_lost_http_error ()``) in test_vt_3.py
+
+1.0.1 (08.01.2020)
+""""""""""""""""""
+
+- First release of vtapi3

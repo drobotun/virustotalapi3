@@ -4,11 +4,14 @@ import vtapi3
 with open('README.rst', 'r', encoding='utf-8') as readme_file:
     readme = readme_file.read()
 
+with open('HISTORY.rst', 'r', encoding='utf-8') as history_file:
+    history = history_file.read()
+
 setup(
     name='vtapi3',
     version=vtapi3.__version__,
     description='VirusTotal API',
-    long_description=readme,
+    long_description=readme + '\n\n' + history,
     author='Evgeny Drobotun',
     author_email='drobotun@xakep.ru',
     url='https://github.com/drobotun/virustotalapi3',

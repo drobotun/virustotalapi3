@@ -2,8 +2,8 @@ import unittest
 import json
 import errno
 
-from vtapi3.vtapi3 import (VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
-                    VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError)
+from vtapi3.vtapi3 import (VirusTotalAPI, VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
+                           VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError)
 
 API_KEY = '<Insert VirusTotal API key>'
 
@@ -36,9 +36,19 @@ TEST_PROXI = {'http': '10.10.1.10:3128',
 
 PRINT_RESULT = False
 
+class testBase(unittest.TestCase):
+
+    def test_get_version_api(self):
+        vt_api = VirusTotalAPI(API_KEY)
+        self.assertEqual(vt_api.get_version_api(), 'version 3')
+
+    def test_get_last_http_error(self):
+        vt_api = VirusTotalAPI(API_KEY)
+        vt_api._last_http_error = vt_api.HTTP_OK
+        self.assertEqual(vt_api.get_last_http_error(), vt_api.HTTP_OK)
 
 class TestFile(unittest.TestCase):
-
+    
     def test_get_file_id_sha256(self):
         file_id = VirusTotalAPIFiles.get_file_id(TEST_FILE)
         if PRINT_RESULT:
