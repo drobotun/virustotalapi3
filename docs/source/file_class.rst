@@ -93,7 +93,7 @@ Example response:
 """""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": {
@@ -147,7 +147,7 @@ Example response:
 """""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": "http://www.virustotal.com/_ah/upload/AMmfu6b-_DXUeFe36Sb3b0F4B8mH9Nb-CHbRoUNVOPwG/"
@@ -195,104 +195,6 @@ Usage:
            print('HTTP Error [' + str(vt_api_files.get_last_http_error()) +']')
        ...
 
-Example response:
-"""""""""""""""""
-    When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
-
-.. code-block::
-
-   {    
-     "type": "file",
-     "id": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
-     "links": {
-       "self": "https://www.virustotal.com/api/v3/files/8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85"
-     },
-     "data": {
-       "attributes": {
-         "first_seen_itw_date": 1075654056,
-         "first_submission_date": 1170892383,
-         "last_analysis_date": 1502355193,
-         "last_analysis_results": {
-           "AVG": {
-             "category": "undetected",
-             "engine_name": "AVG",
-             "engine_update": "20170810",
-             "engine_version": "8.0.1489.320",
-             "method": "blacklist",
-             "result": null
-           }
-           ...
-         },
-         "last_analysis_stats": {
-           "harmless": 0,
-           "malicious": 0,
-           "suspicious": 0,
-           "timeout": 0,
-           "type-unsupported": 8,
-           "undetected": 59
-         },
-         "last_submission_date": 1502355193,
-         "magic": "data",
-         "md5": "76cdb2bad9582d23c1f6f4d868218d6c",
-         "names": [
-           "zipnew.dat",
-           "327916-1502345099.zip",
-           "ac3plug.zip",
-           "IMG_6937.zip",
-           "DOC952.zip",
-           "20170801486960.zip"
-         ],
-         "nsrl_info": {
-           "filenames": [
-             "WINDOWS DIALUP.ZIP",
-             "kemsetup.ZIP",
-             "Data_Linux.zip",
-             "2003.zip",
-             "_6A271FB199E041FC82F4D282E68B01D6"
-           ],
-           "products": [
-             "Master Hacker Internet Terrorism (Core Publishing Inc.)",
-             "Read Rabbits Math Ages 6-9 (Smart Saver)",
-             "Neverwinter Nights Gold (Atari)",
-             "Limited Edition Print Workshop 2004 (ValuSoft)",
-             "Crysis (Electronic Arts Inc.)"
-           ]
-         },
-         "reputation": -889,
-         "sha1": "b04f3ee8f5e43fa3b162981b50bb72fe1acabb33",
-         "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
-         "size": 22,
-         "ssdeep": "3:pjt/l:Nt",
-         "tags": [
-           "software-collection",
-           "nsrl",
-           "attachment",
-           "trusted",
-           "via-tor"
-         ],
-         "times_submitted": 26471,
-         "total_votes": {
-           "harmless": 639,
-           "malicious": 958
-         },
-         "trid": [
-           {
-             "file_type": "ZIP compressed archive (empty)",
-             "probability": 100
-           }
-         ],
-         "trusted_verdict": {
-           "filename": "lprn_spotlightstory_015.zip",
-           "link": "https://dl.google.com/dl/spotlight/test/lprn_spotlightstory/9/lprn_spotlightstory_015.zip",
-           "organization": "Google",
-           "verdict": "goodware"
-         },
-         "type_description": "unknown",
-         }
-       }
-     }
-   }
-
 ----
 
 analyse(file_id)
@@ -339,7 +241,7 @@ Example response:
 """""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": {
@@ -439,7 +341,7 @@ Example response:
 """""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": {

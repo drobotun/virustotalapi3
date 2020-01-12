@@ -103,7 +103,7 @@ Response structure:
 """""""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": {"id": "<string>", "type": "analysis"}
@@ -155,7 +155,7 @@ Response structure:
 """""""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this (for more information, see https://developers.virustotal.com/v3.0/reference#ip-object):
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": <URL OBJECT>
@@ -207,7 +207,7 @@ Response structure:
 """""""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": {"id": "<string>", "type": "analysis"}
@@ -433,7 +433,7 @@ Response structure:
 """""""""""""""""""
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this:
 
-.. code-block::
+.. code-block:: json
 
    {
      "data": <DOMAIN OBJECT> or <IP OBJECT>,
