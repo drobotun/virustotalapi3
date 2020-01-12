@@ -26,8 +26,8 @@ Return value:
 Exception:
 """"""""""
 
-- :ref:`error-label` (File not found)`: In case the file you want to upload to the server is not found.
-- :ref:`error-label` (Permission error)`: In case do not have access rights to the file.
+- :ref:`error-label` (File not found): In case the file you want to upload to the server is not found.
+- :ref:`error-label` (Permission error): In case do not have access rights to the file.
 
 Usage:
 """"""
