@@ -17,7 +17,7 @@ Arguments:
 """"""""""
 
 - *file_path* : Path to the file to be scanned (str).
-- *hash_alg* : Necessary identifier ('sha256', 'sha1' or 'md5'). The default value is 'sha256'.
+- *hash_alg* : Necessary identifier (``sha256``, ``sha1`` or ``md5``). The default value is ``sha256``.
 
 Return value:
 """""""""""""
