@@ -67,7 +67,5 @@ latex_elements = {
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-'preamble': '\makeatletter
-             \renewcommand{\@seccntformat}[1]{}
-             \makeatother'
+'preamble': '\renewcommand{\@seccntformat}[1]{}'
 }
