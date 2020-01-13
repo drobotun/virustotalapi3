@@ -59,7 +59,7 @@ master_doc = 'index'
 
 # -- Options for LaTeX output ---------------------------------------------
 
-#latex_elements = {
+latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
 
@@ -67,5 +67,7 @@ master_doc = 'index'
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '\setcounter{tocdepth}{1}'
-#}
+'preamble': '\makeatletter
+             \renewcommand{\@seccntformat}[1]{}
+             \makeatother'
+}
