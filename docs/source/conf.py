@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'vtapi3'
+project = 'vtapi3 - VirusTotal in Python'
 copyright = '2020, Evgeny Drobotun'
 author = 'Evgeny Drobotun'
 
@@ -67,5 +67,5 @@ latex_elements = {
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-'preamble': '\renewcommand{\@seccntformat}[1]{}'
+#'preamble': '\renewcommand{\@seccntformat}[1]{}'
 }
