@@ -115,3 +115,8 @@ License
 """""""
 
 MIT Copyright (c) 2020 Evgeny Drobotun
+
+Documentation
+"""""""""""""
+
+Documentation for using this package: https://virustotalapi3.readthedocs.io/en/latest/
