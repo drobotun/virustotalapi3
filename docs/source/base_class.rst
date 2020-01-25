@@ -34,7 +34,7 @@ _last_http_error
 
 _last_result
 ~~~~~~~~~~~~
-    Result of the last execution of a subclass method of this class (added in version 1.0.3.).
+    Result of the last execution of a subclass method of this class (added in version 1.0.3).
 
 ----
 

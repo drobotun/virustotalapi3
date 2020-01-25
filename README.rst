@@ -119,7 +119,7 @@ MIT Copyright (c) 2020 Evgeny Drobotun
 Documentation
 """""""""""""
 
-Documentation for using this package: https://virustotalapi3.readthedocs.io/en/latest/
+Documentation for using this package: https://virustotalapi3.readthedocs.io
 
 .. |POST| image:: https://i.imgur.com/CWgYjh1.png
 .. |GET| image:: https://i.imgur.com/CBcN0Fh.png
