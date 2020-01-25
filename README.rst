@@ -26,7 +26,7 @@ The following VirusTotal API functions are implemented:
 
 **For files:**
 
-- **POST** /files
+- |POST| /files
 - **GET** /files/upload_url
 - **GET** /files/{id}
 - **POST** /files/{id}/analyse
@@ -120,3 +120,6 @@ Documentation
 """""""""""""
 
 Documentation for using this package: https://virustotalapi3.readthedocs.io/en/latest/
+
+.. |POST| image:: https://i.imgur.com/CWgYjh1.png
+.. |GET| image:: https://i.imgur.com/CBcN0Fh.png
