@@ -122,7 +122,8 @@ Usage:
 
 get_last_result()
 ~~~~~~~~~~~~~~~~~
-    Return the result of executing methods of subclasses of this class (added in version 1.0.3).
+    Added in version 1.0.3.
+    Return the result of executing methods of subclasses of this class.
 
 Arguments:
 """"""""""
