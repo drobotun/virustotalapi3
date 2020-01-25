@@ -10,7 +10,7 @@ Attributes
           
 base_url
 ~~~~~~~~
-    The base URL for sending requests (str).
+    The base URL for sending requests (str). Has the value: ``https://www.virustotal.com/api/v3``.
 
 headers
 ~~~~~~~
@@ -18,7 +18,7 @@ headers
 
 timeout
 ~~~~~~~
-    Server response timeout. A tuple that includes a timeout value for 'connect' and a timeout value for 'read'. If specify a single timeout value, it will be applied to both timeout 'connect' and timeout 'read'.
+    Server response timeout. A tuple that includes a timeout value for ``connect`` and a timeout value for ``read``. If specify a single timeout value, it will be applied to both timeout ``connect`` and timeout ``read``.
 
 proxies
 ~~~~~~~
@@ -26,7 +26,7 @@ proxies
 
 _version_api
 ~~~~~~~~~~~~
-    VirusTotal API version (str).
+    VirusTotal API version (str). Has the value: ``version 3``.
 
 _last_http_error
 ~~~~~~~~~~~~~~~~
@@ -60,7 +60,7 @@ __init__(api_key, timeout, proxies)
 Arguments:
 """"""""""
 
-- *api_key* : Your API key to access the functions of the service VirusTotal (str).
+- *api_key* : Your API key to access the functions of the service VirusTotal (str). How to get the api key is described in: https://developers.virustotal.com/v3.0/reference#getting-started.
 - *timeout* : Server response timeout (int). Optional.
 - *proxies* : The protocol and the URL of the proxy server (dict). Optional.
 
@@ -76,7 +76,7 @@ Arguments:
 
 Return value:
 """""""""""""
-    String containing API version ("version 3").
+    String containing API version (``version 3``).
 
 Usage:
 """"""

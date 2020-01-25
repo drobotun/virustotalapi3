@@ -4,10 +4,9 @@ Introduction
 Overview
 --------
 
-The module that implements the service API functions www.virustotal.com (3 versions) available using the public key.
-For a detailed description of the API, see: https://developers.virustotal.com/v3.0/reference
+vtapi3 is a Python module that implements the service API functions www.virustotal.com (3 versions) are available using the public key. For a detailed description of the API, see: https://developers.virustotal.com/v3.0/reference.
 
-The following VirusTotal API functions are implemented:
+The vtapi3 module implements the following VirusTotal API functions:
 
 **For files:**
 

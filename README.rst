@@ -14,6 +14,8 @@ VirusTotal API 3 version
     :target: https://pypi.org/project/vtapi3/
 .. image:: https://readthedocs.org/projects/virustotalapi3/badge/?version=latest
     :target: https://virustotalapi3.readthedocs.io/
+.. image:: https://img.shields.io/pypi/dm/vtapi3
+    :target: https://pypi.org/project/vtapi3/
 .. image:: https://i.imgur.com/JtZ54GZ.png
     :target: https://xakep.ru/2020/01/09/virustotal-api/#xakepcut
 
@@ -113,3 +115,8 @@ License
 """""""
 
 MIT Copyright (c) 2020 Evgeny Drobotun
+
+Documentation
+"""""""""""""
+
+Documentation for using this package: https://virustotalapi3.readthedocs.io/en/latest/

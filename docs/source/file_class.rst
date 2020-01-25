@@ -17,7 +17,7 @@ Arguments:
 """"""""""
 
 - *file_path* : Path to the file to be scanned (str).
-- *hash_alg* : Necessary identifier ('sha256', 'sha1' or 'md5'). The default value is 'sha256'.
+- *hash_alg* : Necessary identifier (``sha256``, ``sha1`` or ``md5``). The default value is ``sha256``.
 
 Return value:
 """""""""""""
@@ -26,8 +26,8 @@ Return value:
 Exception:
 """"""""""
 
-- :ref:`error-label` (File not found)`: In case the file you want to upload to the server is not found.
-- :ref:`error-label` (Permission error)`: In case do not have access rights to the file.
+- :ref:`error-label` (File not found): In case the file you want to upload to the server is not found.
+- :ref:`error-label` (Permission error): In case do not have access rights to the file.
 
 Usage:
 """"""
