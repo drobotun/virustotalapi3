@@ -77,6 +77,7 @@ class VirusTotalAPI:
         self.proxies = proxies
         self._version_api = 'version 3'
         self._last_http_error = None
+        self._last_result = None
 
     def get_version_api(self):
         """Return the API version values.
@@ -93,6 +94,14 @@ class VirusTotalAPI:
               HTTP status code of last operation.
         """
         return self._last_http_error
+
+    def get_last_result(self):
+        """Returns the result of executing methods of subclasses of this class.
+
+           Return:
+              Result of the last execution of a subclass method of this class.
+        """
+        return self._last_result
 
 
 class VirusTotalAPIFiles(VirusTotalAPI):
@@ -161,6 +170,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Permission error): In case do not have access rights to the file.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/files'
         try:
             with open(file_path, 'rb') as file:
@@ -177,6 +187,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_upload_url(self):
@@ -190,6 +201,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/files/upload_url'
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -200,6 +212,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_report(self, file_id):
@@ -216,6 +229,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/files/' + file_id
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -226,6 +240,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def analyse(self, file_id):
@@ -242,6 +257,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/files/' + file_id + '/analyse'
         try:
             response = requests.post(api_url, headers=self.headers,
@@ -252,6 +268,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_comments(self, file_id, limit=10, cursor='""'):
@@ -270,6 +287,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/files/' + file_id + '/comments'
         try:
@@ -281,6 +299,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_comments(self, file_id, text):
@@ -298,6 +317,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         comments = {"data": {'type': 'comment', 'attributes': {'text': text}}}
         api_url = self.base_url + '/files/' + file_id + '/comments'
         try:
@@ -309,6 +329,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_votes(self, file_id, limit=10, cursor='""'):
@@ -327,6 +348,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/files/' + file_id + '/votes'
         try:
@@ -338,6 +360,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_votes(self, file_id, malicious=False):
@@ -355,6 +378,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         if malicious:
             verdict = 'malicious'
         else:
@@ -370,6 +394,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_relationship(self, file_id, relationship='/behaviours', limit=10, cursor='""'):
@@ -389,6 +414,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/files/' + file_id + relationship
         try:
@@ -400,6 +426,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_behaviours(self, sandbox_id):
@@ -417,6 +444,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/file_behaviours/' + sandbox_id + '/pcap'
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -427,6 +455,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
 
@@ -485,6 +514,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         data = {'url': url}
         api_url = self.base_url + '/urls'
         try:
@@ -496,6 +526,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_report(self, url_id):
@@ -514,6 +545,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/urls/' + url_id
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -524,6 +556,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def analyse(self, url_id):
@@ -542,6 +575,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/urls/' + url_id + '/analyse'
         try:
             response = requests.post(api_url, headers=self.headers,
@@ -552,6 +586,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_comments(self, url_id, limit=10, cursor='""'):
@@ -572,6 +607,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/urls/' + url_id + '/comments'
         try:
@@ -583,6 +619,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_comments(self, url_id, text):
@@ -602,6 +639,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         comments = {"data": {'type': 'comment', 'attributes': {'text': text}}}
         api_url = self.base_url + '/urls/' + url_id + '/comments'
         try:
@@ -613,6 +651,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_votes(self, url_id, limit=10, cursor='""'):
@@ -633,6 +672,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/urls/' + url_id + '/votes'
         try:
@@ -644,6 +684,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_votes(self, url_id, malicious=False):
@@ -663,6 +704,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         if malicious:
             verdict = 'malicious'
         else:
@@ -678,6 +720,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_network_location(self, url_id):
@@ -696,6 +739,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/urls/' + url_id + '/network_location'
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -706,6 +750,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_relationship(self, url_id, relationship='/last_serving_ip_address',
@@ -728,6 +773,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/urls/' + url_id + relationship
         try:
@@ -739,6 +785,7 @@ class VirusTotalAPIUrls(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
 
@@ -769,6 +816,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/domains/' + domain
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -779,6 +827,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_comments(self, domain, limit=10, cursor='""'):
@@ -797,6 +846,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/domains/' + domain + '/comments'
         try:
@@ -808,6 +858,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_comments(self, domain, text):
@@ -825,6 +876,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         comments = {"data": {'type': 'comment', 'attributes': {'text': text}}}
         api_url = self.base_url + '/domains/' + domain + '/comments'
         try:
@@ -836,6 +888,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_relationship(self, domain, relationship='/resolutions', limit=10, cursor='""'):
@@ -855,6 +908,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/domains/' + domain + relationship
         try:
@@ -866,6 +920,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_votes(self, domain, limit=10, cursor='""'):
@@ -884,6 +939,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/domains/' + domain + '/votes'
         try:
@@ -895,6 +951,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_votes(self, domain, malicious=False):
@@ -912,6 +969,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         if malicious:
             verdict = 'malicious'
         else:
@@ -927,6 +985,7 @@ class VirusTotalAPIDomains(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
 
@@ -957,6 +1016,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/ip_addresses/' + ip_address
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -967,6 +1027,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_comments(self, ip_address, limit=10, cursor='""'):
@@ -985,6 +1046,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/ip_addresses/' + ip_address + '/comments'
         try:
@@ -996,6 +1058,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_comments(self, ip_address, text):
@@ -1013,6 +1076,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         comments = {"data": {'type': 'comment', 'attributes': {'text': text}}}
         api_url = self.base_url + '/ip_addresses/' + ip_address + '/comments'
         try:
@@ -1024,6 +1088,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_relationship(self, ip_address, relationship='/resolutions', limit=10, cursor='""'):
@@ -1043,6 +1108,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/ip_addresses/' + ip_address + relationship
         try:
@@ -1054,6 +1120,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def get_votes(self, ip_address, limit=10, cursor='""'):
@@ -1072,6 +1139,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         query_string = {'limit': str(limit), 'cursor': cursor}
         api_url = self.base_url + '/ip_addresses/' + ip_address + '/votes'
         try:
@@ -1083,6 +1151,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
     def put_votes(self, ip_address, malicious=False):
@@ -1100,6 +1169,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         if malicious:
             verdict = 'malicious'
         else:
@@ -1115,6 +1185,7 @@ class VirusTotalAPIIPAddresses(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
 
@@ -1139,6 +1210,7 @@ class VirusTotalAPIAnalyses(VirusTotalAPI):
            VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
         """
         self._last_http_error = None
+        self._last_result = None
         api_url = self.base_url + '/analyses/' + object_id
         try:
             response = requests.get(api_url, headers=self.headers,
@@ -1149,6 +1221,7 @@ class VirusTotalAPIAnalyses(VirusTotalAPI):
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
         else:
             self._last_http_error = response.status_code
+            self._last_result = response.content
             return response.content
 
 

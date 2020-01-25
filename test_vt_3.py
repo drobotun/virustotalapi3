@@ -47,6 +47,11 @@ class testBase(unittest.TestCase):
         vt_api._last_http_error = vt_api.HTTP_OK
         self.assertEqual(vt_api.get_last_http_error(), vt_api.HTTP_OK)
 
+    def test_get_last_result(self):
+        vt_api = VirusTotalAPI(API_KEY)
+        vt_api._last_result = 'test_get_last_result'
+        self.assertEqual(vt_api.get_last_result(), 'test_get_last_result')
+
 class TestFile(unittest.TestCase):
     
     def test_get_file_id_sha256(self):
