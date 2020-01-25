@@ -32,6 +32,11 @@ _last_http_error
 ~~~~~~~~~~~~~~~~
     HTTP status code of last operation (int).
 
+_last_result
+~~~~~~~~~~~~
+    Added in version 1.0.3.
+    Result of the last execution of a subclass method of this class.
+
 ----
 
 Constants
@@ -116,6 +121,27 @@ Usage:
    print(http_error)
       ...
 
+get_last_result()
+~~~~~~~~~~~~~~~~~
+    Added in version 1.0.3.
+    Return the result of executing methods of subclasses of this class.
 
+Arguments:
+""""""""""
+    None.
 
+Return value:
+"""""""""""""
+    Result of the last execution of a subclass method of this class.
 
+Usage:
+""""""
+
+.. code-block:: python
+
+   import vtapi3
+      ...
+   vt_api = vtapi3.VirusTotalAPI('<API key>')
+   result = vt_api.get_last_result()
+   print(result)
+      ...

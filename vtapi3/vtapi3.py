@@ -46,12 +46,14 @@ class VirusTotalAPI:
           proxies: The Protocol and the URL of the proxy server (dict).
           _version_api: VirusTotal API version (str).
           _last_http_error: HTTP status code of last operation (int).
+          _last_result: Result of the last execution of a subclass method of this class.
 
        Constants: HTTP error codes constants.
 
        Methods:
          get_version_api(): Return the API version values.
          get_last_http_error(): Return the HTTP status code of last operation.
+         get_last_result(): Return the result of executing methods of subclasses of this class.
     """
 
     HTTP_OK = requests.codes['ok']
@@ -96,7 +98,7 @@ class VirusTotalAPI:
         return self._last_http_error
 
     def get_last_result(self):
-        """Returns the result of executing methods of subclasses of this class.
+        """Return the result of executing methods of subclasses of this class.
 
            Return:
               Result of the last execution of a subclass method of this class.
