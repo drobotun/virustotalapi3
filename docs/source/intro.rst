@@ -10,49 +10,49 @@ The vtapi3 module implements the following VirusTotal API functions:
 
 **For files:**
 
-- **POST** /files
-- **GET** /files/upload_url
-- **GET** /files/{id}
-- **POST** /files/{id}/analyse
-- **GET** /files/{id}/comments
-- **POST** /files/{id}/comments
-- **GET** /files/{id}/votes
-- **POST** /files/{id}/votes
-- **GET** /files/{id}/{relationship}
-- **GET** /file_behaviours/{sandbox_id}/pcap
+- |POST| /files
+- |GET| /files/upload_url
+- |GET| /files/{id}
+- |POST| /files/{id}/analyse
+- |GET| /files/{id}/comments
+- |POST| /files/{id}/comments
+- |GET| /files/{id}/votes
+- |POST| /files/{id}/votes
+- |GET| /files/{id}/{relationship}
+- |GET| /file_behaviours/{sandbox_id}/pcap
 
 **For URLs:**
 
-- **POST** /urls
-- **GET** /urls/{id}
-- **POST** /urls/{id}/analyse
-- **GET** /urls/{id}/comments
-- **POST** /urls/{id}/comments
-- **GET** /urls/{id}/votes
-- **POST** /urls/{id}/votes
-- **GET** /urls/{id}/network_location
+- |POST| /urls
+- |GET| /urls/{id}
+- |POST| /urls/{id}/analyse
+- |GET| /urls/{id}/comments
+- |POST| /urls/{id}/comments
+- |GET| /urls/{id}/votes
+- |POST| /urls/{id}/votes
+- |GET| /urls/{id}/network_location
 
 **For domains:**
 
-- **GET** /domains/{domain}
-- **GET** /domains/{domain}/comments
-- **POST** /domains/{domain}/comments
-- **GET** /domains/{domain}/{relationship}
-- **GET** /domains/{domain}/votes
-- **POST** /domains/{domain}/votes
+- |GET| /domains/{domain}
+- |GET| /domains/{domain}/comments
+- |POST| /domains/{domain}/comments
+- |GET| /domains/{domain}/{relationship}
+- |GET| /domains/{domain}/votes
+- |POST| /domains/{domain}/votes
 
 **For IP-addresses:**
 
-- **GET** /domains/{domain}
-- **GET** /domains/{domain}/comments
-- **POST** /domains/{domain}/comments
-- **GET** /domains/{domain}/{relationship}
-- **GET** /domains/{domain}/votes
-- **POST** /domains/{domain}/votes
+- |GET| /domains/{domain}
+- |GET| /domains/{domain}/comments
+- |POST| /domains/{domain}/comments
+- |GET| /domains/{domain}/{relationship}
+- |GET| /domains/{domain}/votes
+- |POST| /domains/{domain}/votes
 
 **File and URL analysis:**
 
-- **GET** /analyses/{id}
+- |GET| /analyses/{id}
 
 Installation
 """"""""""""
@@ -103,6 +103,11 @@ MIT Copyright (c) 2020 Evgeny Drobotun
 Release History
 ---------------
 
+1.0.3 (26.01.2020)
+""""""""""""""""""
+- Added a new attribute ``_last_result`` to the VirustotalAPI base class.
+- Added a new method ``get_last_result`` to the VirustotalAPI base class.
+
 1.0.2 (12.01.2020)
 """"""""""""""""""
 
@@ -116,3 +121,6 @@ Release History
 """"""""""""""""""
 
 - First release of vtapi3
+
+.. |POST| image:: https://i.imgur.com/CWgYjh1.png
+.. |GET| image:: https://i.imgur.com/CBcN0Fh.png
