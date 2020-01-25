@@ -27,48 +27,48 @@ The following VirusTotal API functions are implemented:
 **For files:**
 
 - |POST| /files
-- **GET** /files/upload_url
-- **GET** /files/{id}
-- **POST** /files/{id}/analyse
-- **GET** /files/{id}/comments
-- **POST** /files/{id}/comments
-- **GET** /files/{id}/votes
-- **POST** /files/{id}/votes
-- **GET** /files/{id}/{relationship}
-- **GET** /file_behaviours/{sandbox_id}/pcap
+- |GET| /files/upload_url
+- |GET| /files/{id}
+- |POST| /files/{id}/analyse
+- |GET| /files/{id}/comments
+- |POST| /files/{id}/comments
+- |GET| /files/{id}/votes
+- |POST| /files/{id}/votes
+- |GET| /files/{id}/{relationship}
+- |GET| /file_behaviours/{sandbox_id}/pcap
 
 **For URLs:**
 
-- **POST** /urls
-- **GET** /urls/{id}
-- **POST** /urls/{id}/analyse
-- **GET** /urls/{id}/comments
-- **POST** /urls/{id}/comments
-- **GET** /urls/{id}/votes
-- **POST** /urls/{id}/votes
-- **GET** /urls/{id}/network_location
+- |POST| /urls
+- |GET| /urls/{id}
+- |POST| /urls/{id}/analyse
+- |GET| /urls/{id}/comments
+- |POST| /urls/{id}/comments
+- |GET| /urls/{id}/votes
+- |POST| /urls/{id}/votes
+- |GET| /urls/{id}/network_location
 
 **For domains:**
 
-- **GET** /domains/{domain}
-- **GET** /domains/{domain}/comments
-- **POST** /domains/{domain}/comments
-- **GET** /domains/{domain}/{relationship}
-- **GET** /domains/{domain}/votes
-- **POST** /domains/{domain}/votes
+- |GET| /domains/{domain}
+- |GET| /domains/{domain}/comments
+- |POST| /domains/{domain}/comments
+- |GET| /domains/{domain}/{relationship}
+- |GET| /domains/{domain}/votes
+- |POST| /domains/{domain}/votes
 
 **For IP-addresses:**
 
-- **GET** /domains/{domain}
-- **GET** /domains/{domain}/comments
-- **POST** /domains/{domain}/comments
-- **GET** /domains/{domain}/{relationship}
-- **GET** /domains/{domain}/votes
-- **POST** /domains/{domain}/votes
+- |GET| /domains/{domain}
+- |GET| /domains/{domain}/comments
+- |POST| /domains/{domain}/comments
+- |GET| /domains/{domain}/{relationship}
+- |GET| /domains/{domain}/votes
+- |POST| /domains/{domain}/votes
 
 **File and URL analysis:**
 
-- **GET** /analyses/{id}
+- |GET| /analyses/{id}
 
 Installation
 """"""""""""
