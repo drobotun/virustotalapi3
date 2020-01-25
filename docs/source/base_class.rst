@@ -34,8 +34,7 @@ _last_http_error
 
 _last_result
 ~~~~~~~~~~~~
-    Added in version 1.0.3.
-    Result of the last execution of a subclass method of this class.
+    Result of the last execution of a subclass method of this class (Added in version 1.0.3.).
 
 ----
 
@@ -123,8 +122,7 @@ Usage:
 
 get_last_result()
 ~~~~~~~~~~~~~~~~~
-    Added in version 1.0.3.
-    Return the result of executing methods of subclasses of this class.
+    Return the result of executing methods of subclasses of this class (Added in version 1.0.3).
 
 Arguments:
 """"""""""
