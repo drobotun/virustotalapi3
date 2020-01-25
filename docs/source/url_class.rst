@@ -158,7 +158,7 @@ Response structure:
 .. code-block:: json
 
    {
-     "data": <URL OBJECT>
+     "data": "<URL OBJECT>"
    }
 
 ----
@@ -436,7 +436,7 @@ Response structure:
 .. code-block:: json
 
    {
-     "data": <DOMAIN OBJECT> or <IP OBJECT>,
+     "data": "<DOMAIN OBJECT> or <IP OBJECT>",
      "links": {"self": "<string>"}
    }
 
