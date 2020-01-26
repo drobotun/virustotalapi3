@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-vtapi3 - VirusTotal API in Python
+vtapi3 - VirusTotal API on the Python
 =================================
 
 This guide describes how to use the vtapi3 Python module.
