@@ -1,5 +1,8 @@
 Release History
----------------
+===============
+
+1.0.4 (1.02.2020)
+Fixing README.rst for better PYPI presentation.
 
 1.0.3 (26.01.2020)
 """"""""""""""""""
