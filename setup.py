@@ -8,7 +8,7 @@ setup(
     name='vtapi3',
     version=vtapi3.__version__,
     description='VirusTotal API',
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
     author='Evgeny Drobotun',
     author_email='drobotun@xakep.ru',
     url='https://github.com/drobotun/virustotalapi3/',
