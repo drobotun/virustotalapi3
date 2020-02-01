@@ -122,7 +122,7 @@ Documentation
 Documentation for using this package: https://virustotalapi3.readthedocs.io
 
 Release History
----------------
+===============
 
 1.0.4 (1.02.2020)
 """"""""""""""""""
