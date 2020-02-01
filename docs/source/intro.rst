@@ -103,8 +103,14 @@ MIT Copyright (c) 2020 Evgeny Drobotun
 Release History
 ---------------
 
+1.0.4 (1.02.2020)
+"""""""""""""""""
+
+- Fixing README.rst for better PYPI presentation.
+
 1.0.3 (26.01.2020)
 """"""""""""""""""
+
 - Added a new attribute ``_last_result`` to the VirustotalAPI base class.
 - Added a new method ``get_last_result`` to the VirustotalAPI base class.
 
