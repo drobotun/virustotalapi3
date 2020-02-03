@@ -140,8 +140,7 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 Release History
 ===============
 
-1.1.0 (3.02.2020)
-~~~~~~~~~~~~~~~~~
+.. rubric:: 1.1.0 (3.02.2020)
 
 - Added the ability to performance the package from the command line.
 
