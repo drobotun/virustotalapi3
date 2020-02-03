@@ -108,9 +108,9 @@ Before using the package from the command line, you must create an environment v
 
 .. code-block:: bash
 
-    vtapi3  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
-                 [-dr]
-                 resource
+    vtapi3.py  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
+                    [-dr]
+                    resource
 
     positional arguments:
       resource              Object that you want to analyse in VirusTotal (file,
