@@ -141,12 +141,12 @@ Release History
 ===============
 
 1.1.0 (3.02.2020)
-"""""""""""""""""
+~~~~~~~~~~~~~~~~~
 
 - Added the ability to performance the package from the command line.
 
 1.0.4 (1.02.2020)
-"""""""""""""""""
+~~~~~~~~~~~~~~~~~
 
 - Fixing README.rst for better PYPI presentation.
 
