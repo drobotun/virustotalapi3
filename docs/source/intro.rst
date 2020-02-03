@@ -67,8 +67,7 @@ Usage
 In python programs
 ''''''''''''''''''
 
-Code
-~~~~
+.. rubric:: Code
 
 .. code-block:: python
 
@@ -89,8 +88,7 @@ Code
            print('HTTP Error [' + str(vt_files.get_last_http_error()) +']')
        ...
 
-Output
-~~~~~~
+.. rubric:: Output
 
 .. code-block:: json
 
@@ -112,11 +110,11 @@ Before using the package from the command line, you must create an environment v
                     [-dr]
                     resource
 
-.. rubric:: positional arguments:
+.. rubric:: Positional arguments
 
 - ``resource`` - Object that you want to analyse in VirusTotal (file, URL, IP address or domain).
 
-.. rubric:: optional arguments:
+.. rubric:: Optional arguments
 
 - ``-h``, ``--help`` - Show help message and exit.
 - ``-fid``, ``--file-id`` - Getting the identifier of the file for further analysis.
