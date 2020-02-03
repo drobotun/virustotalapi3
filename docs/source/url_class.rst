@@ -8,21 +8,21 @@ The analysis new URLs and retrieving information about any URLs from the VirusTo
 Methods:
 --------
 
+.. index:: get_url_id_base64()
+
 get_url_id_base64(url)
 ~~~~~~~~~~~~~~~~~~~~~~
    Get base64 encoded URL identifier.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url* : The URL for which you want to get the identifier (str).
+- ``url`` : The URL for which you want to get the identifier (str).
 
-Return value:
-"""""""""""""
+**Return value:**
+
    The identifier of the url, base64 encoded (str).
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -34,21 +34,21 @@ Usage:
 
 ----
 
+.. index:: get_url_id_sha256()
+
 get_url_id_sha256(url)
 ~~~~~~~~~~~~~~~~~~~~~~
    Get the URL identifier as a SHA256 hash.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url* : The URL for which you want to get the identifier (str).
+- ``url`` : The URL for which you want to get the identifier (str).
 
-Return value:
-"""""""""""""
+**Return value:**
+
    The identifier of the url, SHA256 encoded (str).
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -60,26 +60,26 @@ Usage:
 
 ----
 
+.. index:: upload()
+
 upload(url)
 ~~~~~~~~~~~~~~~~~
     Upload URL for analysis.
 
-Arguments:
-""""""""""
-    - *url* : URL to be analyzed (str).
+**Arguments:**
 
-Return value:
-"""""""""""""
+- ``url`` : URL to be analyzed (str).
+
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -99,8 +99,8 @@ Usage:
            print('HTTP Error [' + str(vt_api_urls.get_last_http_error()) +']')
        ...
 
-Response structure:
-"""""""""""""""""""
+**Response structure:**
+
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this:
 
 .. code-block:: json
@@ -111,27 +111,26 @@ Response structure:
 
 ----
 
+.. index:: get_report()
+
 get_report(url_id)
 ~~~~~~~~~~~~~~~~~~~
    Retrieve information about an URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -151,8 +150,8 @@ Usage:
            print('HTTP Error [' + str(vt_api_urls.get_last_http_error()) +']')
        ...
 
-Response structure:
-"""""""""""""""""""
+**Response structure:**
+
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this (for more information, see https://developers.virustotal.com/v3.0/reference#ip-object):
 
 .. code-block:: json
@@ -163,27 +162,26 @@ Response structure:
 
 ----
 
+.. index:: analyse()
+
 analyse(url_id)
 ~~~~~~~~~~~~~~~~
    Analyse an URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -203,8 +201,8 @@ Usage:
            print('HTTP Error [' + str(vt_api_urls.get_last_http_error()) +']')
        ...
 
-Response structure:
-"""""""""""""""""""
+**Response structure:**
+
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this:
 
 .. code-block:: json
@@ -215,29 +213,28 @@ Response structure:
 
 ----
 
+.. index:: get_comments()
+
 get_comments(url_id, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve comments for an URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
-- *limit* : Maximum number of comments to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``limit`` : Maximum number of comments to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -259,28 +256,27 @@ Usage:
 
 ----
 
+.. index:: put_comments()
+
 put_comments(url_id, text)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Add a comment to a URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
-- *text* : Text of the comment (str). Any word starting with ``#`` in your comment's text will be considered a tag, and added to the comment's tag attribute.
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``text`` : Text of the comment (str). Any word starting with ``#`` in your comment's text will be considered a tag, and added to the comment's tag attribute.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -302,29 +298,28 @@ Usage:
 
 ----
 
+.. index:: get_votes()
+
 get_votes(url_id, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve votes for a URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
-- *limit* : Maximum number of vites to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``limit`` : Maximum number of vites to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -346,28 +341,27 @@ Usage:
 
 ----
 
+.. index:: put_votes()
+
 put_votes(url_id, malicious)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Add a vote to a URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
-- *malicious* : Determines a malicious (True) or harmless (False) URL (bool). The default value is ``False``.
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``malicious`` : Determines a malicious (True) or harmless (False) URL (bool). The default value is ``False``.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -389,27 +383,26 @@ Usage:
 
 ----
 
+.. index:: get_network_location()
+
 get_network_location(url_id)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Get the domain or IP address for a URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -429,8 +422,8 @@ Usage:
            print('HTTP Error [' + str(vt_api_urls.get_last_http_error()) +']')
        ...
 
-Response structure:
-"""""""""""""""""""
+**Response structure:**
+
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response structure will look like this:
 
 .. code-block:: json
@@ -442,30 +435,29 @@ Response structure:
 
 ----
 
+.. index:: get_relationship()
+
 get_relationship(url_id, relationship, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve objects related to an URL.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *url_id* : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
-- *relationship* : Relationship name (str). The default value is ``/last_serving_ip_address``. For more information, see https://developers.virustotal.com/v3.0/reference#urls-relationships.
-- *limit* : Maximum number of related objects to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``url_id`` : URL identifier (str). This identifier can adopt two forms: the SHA-256 of the canonized URL (method `get_url_id_sha256(url)`_ ), the string resulting from encoding the URL in base64 without the "=" padding (method `get_url_id_base64(url)`_ ).
+- ``relationship`` : Relationship name (str). The default value is ``/last_serving_ip_address``. For more information, see https://developers.virustotal.com/v3.0/reference#urls-relationships.
+- ``limit`` : Maximum number of related objects to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 

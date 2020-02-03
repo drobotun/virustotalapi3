@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 vtapi3 - VirusTotal API on the Python
-=================================
+=====================================
 
 This guide describes how to use the vtapi3 Python module.
 
@@ -19,3 +19,5 @@ This guide describes how to use the vtapi3 Python module.
    ip_class
    analyses_class
    error_class
+
+* :ref:`genindex`

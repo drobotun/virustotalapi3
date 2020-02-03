@@ -8,27 +8,26 @@ The retrieving information about any IP addresses from the VirusTotal database m
 Methods:
 --------
 
+.. index:: get_report()
+
 get_report(ip_address)
 ~~~~~~~~~~~~~~~~~~~~~~
    Retrieve information about an IP address.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *ip_address* : IP address (str).
+- ``ip_address`` : IP address (str).
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -48,8 +47,8 @@ Usage:
            print('HTTP Error [' + str(vt_api_ip_addresses.get_last_http_error()) +']')
        ...
 
-Example response:
-"""""""""""""""""
+**Example response:**
+
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
 
 .. code-block:: json
@@ -71,29 +70,28 @@ Example response:
 
 ----
 
+.. index:: get_comments()
+
 get_comments(ip_address, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve comments for an IP address.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *ip_address* : IP address (str).
-- *limit* : Maximum number of comments to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``ip_address`` : IP address (str).
+- ``limit`` : Maximum number of comments to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -115,28 +113,27 @@ Usage:
 
 ----
 
+.. index:: put_comments()
+
 put_comments(ip_address, text)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Add a comment to an IP address.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *ip_address* : IP address (str).
-- *text* : Text of the comment (str). Any word starting with ``#`` in your comment's text will be considered a tag, and added to the comment's tag attribute.
+- ``ip_address`` : IP address (str).
+- ``text`` : Text of the comment (str). Any word starting with ``#`` in your comment's text will be considered a tag, and added to the comment's tag attribute.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -158,30 +155,29 @@ Usage:
 
 ----
 
+.. index:: get_relationship()
+
 get_relationship(ip_address, relationship, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve objects related to an IP address.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *ip_address* : IP address (str).
-- *relationship* : Relationship name (str). The default value is ``/resolutions``. For more information, see https://developers.virustotal.com/v3.0/reference#ip-relationships.
-- *limit* : Maximum number of related objects to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``ip_address`` : IP address (str).
+- ``relationship`` : Relationship name (str). The default value is ``/resolutions``. For more information, see https://developers.virustotal.com/v3.0/reference#ip-relationships.
+- ``limit`` : Maximum number of related objects to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -203,29 +199,28 @@ Usage:
 
 ----
 
+.. index:: get_votes()
+
 get_votes(ip_address, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve votes for an IP address.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *ip_address* : IP address (str).
-- *limit* : Maximum number of vites to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``ip_address`` : IP address (str).
+- ``limit`` : Maximum number of vites to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -247,28 +242,27 @@ Usage:
 
 ----
 
+.. index:: put_votes()
+
 put_votes(ip_address, malicious)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Add a vote for an IP address.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *ip_address* : IP address (str).
-- *malicious* : Determines a malicious (True) or harmless (False) file (bool). The default value is ``False``.
+- ``ip_address`` : IP address (str).
+- ``malicious`` : Determines a malicious (True) or harmless (False) file (bool). The default value is ``False``.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 

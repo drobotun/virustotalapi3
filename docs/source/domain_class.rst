@@ -8,27 +8,26 @@ The retrieving information about any domain from the VirusTotal database methods
 Methods:
 --------
 
+.. index:: get_report()
+
 get_report(domain)
 ~~~~~~~~~~~~~~~~~~~
    Retrieve information about an Internet domain.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *domain* : Domain name (str).
+- ``domain`` : Domain name (str).
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -48,8 +47,8 @@ Usage:
            print('HTTP Error [' + str(vt_api_domains.get_last_http_error()) +']')
        ...
 
-Example response:
-"""""""""""""""""
+**Example response:**
+
     When ``_last_http_error`` = ``HTTP_OK`` and after conversion to JSON, the response will look like this:
 
 .. code-block:: json
@@ -84,29 +83,28 @@ Example response:
 
 ----
 
+.. index:: get_comments()
+
 get_comments(domain, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve comments for an Internet domain.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *domain* : Domain name (str).
-- *limit* : Maximum number of comments to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``domain`` : Domain name (str).
+- ``limit`` : Maximum number of comments to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -128,28 +126,27 @@ Usage:
 
 ----
 
+.. index:: put_comments()
+
 put_comments(domain, text)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Add a comment to an Internet domain..
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *domain* : Domain name (str).
-- *text* : Text of the comment (str). Any word starting with ``#`` in your comment's text will be considered a tag, and added to the comment's tag attribute.
+- ``domain`` : Domain name (str).
+- ``text`` : Text of the comment (str). Any word starting with ``#`` in your comment's text will be considered a tag, and added to the comment's tag attribute.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -171,30 +168,29 @@ Usage:
 
 ----
 
+.. index:: get_relationship()
+
 get_relationship(domain, relationship, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve objects related to an Internet domain.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *domain* : Domain name (str).
-- *relationship* : Relationship name (str). The default value is ``/resolutions``. For more information, see https://developers.virustotal.com/v3.0/reference#domains-relationships.
-- *limit* : Maximum number of related objects to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``domain`` : Domain name (str).
+- ``relationship`` : Relationship name (str). The default value is ``/resolutions``. For more information, see https://developers.virustotal.com/v3.0/reference#domains-relationships.
+- ``limit`` : Maximum number of related objects to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -216,29 +212,28 @@ Usage:
 
 ----
 
+.. index:: get_votes()
+
 get_votes(domain, limit, cursor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Retrieve votes for a hostname or domain.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *domain* : Domain name (str).
-- *limit* : Maximum number of vites to retrieve (int). The default value is 10.
-- *cursor* : Continuation cursor (str). The default value is ''.
+- ``domain`` : Domain name (str).
+- ``limit`` : Maximum number of vites to retrieve (int). The default value is 10.
+- ``cursor`` : Continuation cursor (str). The default value is ''.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
@@ -260,28 +255,27 @@ Usage:
 
 ----
 
+.. index:: put_votes()
+
 put_votes(domain, malicious)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Add a vote for a hostname or domain.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *domain* : Domain name(str).
-- *malicious* : Determines a malicious (True) or harmless (False) file (bool). The default value is ``False``.
+- ``domain`` : Domain name(str).
+- ``malicious`` : Determines a malicious (True) or harmless (False) file (bool). The default value is ``False``.
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 

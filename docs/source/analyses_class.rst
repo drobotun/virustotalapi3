@@ -8,27 +8,26 @@ The retrieving information about analysis of the file or URL method are defined 
 Methods:
 --------
 
+.. index:: get_report()
+
 get_report(object_id)
 ~~~~~~~~~~~~~~~~~~~~~~
    Retrieve information about a file or URL analysis.
 
-Arguments:
-""""""""""
+**Arguments:**
 
-- *object_id* : Analysis identifier (str).
+- ``object_id`` : Analysis identifier (str).
 
-Return value:
-"""""""""""""
+**Return value:**
+
     The response from the server as a byte sequence.
 
-Exception:
-""""""""""
+**Exception:**
 
 - :ref:`error-label` (Connection error): In case of server connection errors.
 - :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
 
-Usage:
-""""""
+**Usage:**
 
 .. code-block:: python
 
