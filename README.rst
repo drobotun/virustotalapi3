@@ -130,40 +130,29 @@ Before using the package from the command line, you must create an environment v
 
 **positional arguments:**
 
-resource
-    Object that you want to analyse in VirusTotal (file, URL, IP address or domain)
+``resource`` - Object that you want to analyse in VirusTotal (file, URL, IP address or domain)
 
 **optional arguments:**
 
--h, --help
-    Show help message and exit
+``-h``, ``--help`` - Show help message and exit
 
--fid, --file-id
-    Getting the identifier of the file for further analysis
+``-fid``, ``--file-id`` - Getting the identifier of the file for further analysis
 
--fsr, --file-scan-report
-    Getting a report on the results of scanning a file
+``-fsr``, ``--file-scan-report`` - Getting a report on the results of scanning a file
 
--far, --file-analyse-report
-    Getting a report on the results of file analysis (enabled by default)
+``-far``, ``--file-analyse-report`` - Getting a report on the results of file analysis (enabled by default)
 
--hr, --hash-report
-    Getting a report on the results of analyzing a file by its hash (SHA256, SHA1 or MD5)
+``-hr``, ``--hash-report`` - Getting a report on the results of analyzing a file by its hash (SHA256, SHA1 or MD5)
 
--uid, --url-id
-    Getting the identifier of the URL for further analysis
+``-uid``, ``--url-id`` - Getting the identifier of the URL for further analysis
 
--usr, --url-scan-report
-    Getting a report on the results of scanning a URL
+``-usr``, ``--url-scan-report`` - Getting a report on the results of scanning a URL
 
--uar, --url-analyse-report
-    Getting a report on the results of URL analysis
+``-uar``, ``--url-analyse-report`` - Getting a report on the results of URL analysis
 
--ipr, --ip-report
-    Getting a report on the results of IP address analysis
+``-ipr``, ``--ip-report`` - Getting a report on the results of IP address analysis
 
- -dr, --domain-report
-    Getting a report on the results of domain analysis
+ ``-dr``, ``--domain-report`` - Getting a report on the results of domain analysis
 
 License
 """""""
