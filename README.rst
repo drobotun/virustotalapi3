@@ -128,11 +128,11 @@ Before using the package from the command line, you must create an environment v
                  [-dr]
                  resource
 
-**positional arguments:**
+.. rubric:: positional arguments:
 
 ``resource`` - Object that you want to analyse in VirusTotal (file, URL, IP address or domain)
 
-**optional arguments:**
+.. rubric:: optional arguments:
 
 ``-h``, ``--help`` - Show help message and exit
 
@@ -152,7 +152,7 @@ Before using the package from the command line, you must create an environment v
 
 ``-ipr``, ``--ip-report`` - Getting a report on the results of IP address analysis
 
- ``-dr``, ``--domain-report`` - Getting a report on the results of domain analysis
+``-dr``, ``--domain-report`` - Getting a report on the results of domain analysis
 
 License
 """""""
