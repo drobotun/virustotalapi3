@@ -80,6 +80,12 @@ Installation
 Usage
 """""
 
+In python programs
+------------------
+
+Code
+~~~~
+
 .. code-block:: python
 
    import json
@@ -100,7 +106,7 @@ Usage
        ...
 
 Output
-""""""
+~~~~~~
 
 .. code-block:: json
 
@@ -110,6 +116,42 @@ Output
         "id": "NjY0MjRlOTFjMDIyYTkyNWM0NjU2NWQzYWNlMzFmZmI6MTQ3NTA0ODI3Nw=="
       }
     }
+
+From command line
+-----------------
+
+Before using the package from the command line, you must create an environment variable VT_API_KEY in which to place the value of the access key to the VirusTotal API functions.
+
+.. code-block:: bash
+
+    vtapi3  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
+                 [-dr]
+                 resource
+				 
+.. rubric:: positional arguments:
+
+  resource              Object that you want to analyse in VirusTotal (file,
+                        URL, IP address or domain)
+
+.. rubric:: optional arguments:
+
+  -h, --help            Show help message and exit
+  -fid, --file-id       Getting the identifier of the file for further
+                        analysis
+  -fsr, --file-scan-report
+                        Getting a report on the results of scanning a file
+  -far, --file-analyse-report
+                        Getting a report on the results of file analysis
+                        (enabled by default)
+  -hr, --hash-report    Getting a report on the results of analyzing a file by
+                        its hash (SHA256, SHA1 or MD5)
+  -uid, --url-id        Getting the identifier of the URL for further analysis
+  -usr, --url-scan-report
+                        Getting a report on the results of scanning a URL
+  -uar, --url-analyse-report
+                        Getting a report on the results of URL analysis
+  -ipr, --ip-report     Getting a report on the results of IP address analysis
+  -dr, --domain-report  Getting a report on the results of domain analysis
 
 License
 """""""
@@ -123,6 +165,11 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 
 Release History
 ===============
+
+1.1.0 (3.02.2020)
+"""""""""""""""""
+
+- Added the ability to performance the package from the command line.
 
 1.0.4 (1.02.2020)
 """"""""""""""""""
