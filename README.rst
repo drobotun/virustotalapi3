@@ -128,11 +128,13 @@ Before using the package from the command line, you must create an environment v
                  [-dr]
                  resource
 
-.. rubric:: positional arguments:
+positional arguments:
+~~~~~~~~~~~~~~~~~~~~~
 
 ``resource`` - Object that you want to analyse in VirusTotal (file, URL, IP address or domain)
 
-.. rubric:: optional arguments:
+optional arguments:
+~~~~~~~~~~~~~~~~~~~
 
 ``-h``, ``--help`` - Show help message and exit
 
