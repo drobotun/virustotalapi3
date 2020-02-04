@@ -83,8 +83,7 @@ Usage
 In python programs
 ''''''''''''''''''
 
-Code
-~~~~
+.. rubric:: Code
 
 .. code-block:: python
 
@@ -105,8 +104,7 @@ Code
            print('HTTP Error [' + str(vt_files.get_last_http_error()) +']')
        ...
 
-Output
-~~~~~~
+.. rubric:: Output
 
 .. code-block:: json
 
@@ -128,28 +126,22 @@ Before using the package from the command line, you must create an environment v
                     [-dr]
                     resource
 
-    positional arguments:
-      resource              Object that you want to analyse in VirusTotal (file,
-                            URL, IP address or domain)
+.. rubric:: Positional arguments
 
-    optional arguments:
-      -h, --help            Show help message and exit
-      -fid, --file-id       Getting the identifier of the file for further
-                            analysis
-      -fsr, --file-scan-report
-                            Getting a report on the results of scanning a file
-      -far, --file-analyse-report
-                            Getting a report on the results of file analysis
-                            (enabled by default)
-      -hr, --hash-report    Getting a report on the results of analyzing a file by
-                            its hash (SHA256, SHA1 or MD5)
-      -uid, --url-id        Getting the identifier of the URL for further analysis
-      -usr, --url-scan-report
-                            Getting a report on the results of scanning a URL
-      -uar, --url-analyse-report
-                            Getting a report on the results of URL analysis
-      -ipr, --ip-report     Getting a report on the results of IP address analysis
-      -dr, --domain-report  Getting a report on the results of domain analysis
+- ``resource`` - Object that you want to analyse in VirusTotal (file, URL, IP address or domain).
+
+.. rubric:: Optional arguments
+
+- ``-h``, ``--help`` - Show help message and exit.
+- ``-fid``, ``--file-id`` - Getting the identifier of the file for further analysis.
+- ``-fsr``, ``--file-scan-report`` - Getting a report on the results of scanning a file.
+- ``-far``, ``--file-analyse-report`` - Getting a report on the results of file analysis (enabled by default).
+- ``-hr``, ``--hash-report`` - Getting a report on the results of analyzing a file by its hash (SHA256, SHA1 or MD5).
+- ``-uid``, ``--url-id`` - Getting the identifier of the URL for further analysis.
+- ``-usr``, ``--url-scan-report`` - Getting a report on the results of scanning a URL.
+- ``-uar``, ``--url-analyse-report`` - Getting a report on the results of URL analysis.
+- ``-ipr``, ``--ip-report`` - Getting a report on the results of IP address analysis.
+- ``-dr``, ``--domain-report`` - Getting a report on the results of domain analysis.
 
 License
 """""""
@@ -163,6 +155,12 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 
 Release History
 ===============
+
+1.1.1 (4.02.2020)
+"""""""""""""""""
+
+- Fixed several errors in the ``get_file_id_to_analyse()`` and ``get_url_id_to_analyse functions()``.
+- Added VirusTotalAPIError(IO Error) exception in the ``get_file_id()`` and ``upload()`` functions of the VirusTotalAPIFiles class.
 
 1.1.0 (3.02.2020)
 """""""""""""""""

@@ -1,6 +1,12 @@
 Release History
 ===============
 
+1.1.1 (4.02.2020)
+"""""""""""""""""
+
+- Fixed several errors in the ``get_file_id_to_analyse()`` and ``get_url_id_to_analyse functions()``.
+- Added VirusTotalAPIError(IO Error) exception in the ``get_file_id()`` and ``upload()`` functions of the VirusTotalAPIFiles class.
+
 1.1.0 (3.02.2020)
 """""""""""""""""
 
