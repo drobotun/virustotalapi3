@@ -5,6 +5,7 @@ with open('README.rst', 'r', encoding='utf-8') as readme_file:
     readme = readme_file.read()
 
 setup(
+    install_requires=['requests >= 2.22.0'],
     name='vtapi3',
     version=vtapi3.__version__,
     description='VirusTotal API',
@@ -25,5 +26,5 @@ setup(
         'Programming Language :: Python :: 3.7',
     ],
     test_suite='test_vt_3',
-    packages=find_packages(),
-    install_requires=['requests >= 2.22.0'])
+    packages=find_packages()
+    )
