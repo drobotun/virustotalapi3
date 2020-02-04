@@ -3,7 +3,7 @@ import json
 import errno
 import os
 
-from vtapi3 import (VirusTotalAPI, VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
+from vtapi3.vtapi3 import (VirusTotalAPI, VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
                     VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError,
                     get_environment_api_key, get_file_id_to_analyse, get_file_scan_report,
                     get_file_analyse_report, get_hash_report, get_url_id_to_analyse,
