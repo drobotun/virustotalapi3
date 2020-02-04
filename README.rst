@@ -122,9 +122,9 @@ Before using the package from the command line, you must create an environment v
 
 ::
 
-    $ python -m vtapi3.py  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
-                           [-dr]
-                           resource
+    $ python -m vtapi3  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
+                        [-dr]
+                        resource
 
 .. rubric:: Positional arguments
 

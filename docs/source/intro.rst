@@ -106,9 +106,9 @@ Before using the package from the command line, you must create an environment v
 
 ::
 
-    vtapi3.py  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
-                    [-dr]
-                    resource
+    $ python -m vtapi3  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
+                      [-dr]
+                      resource
 
 .. rubric:: Positional arguments
 
@@ -139,6 +139,11 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 
 Release History
 ===============
+
+.. rubric:: 1.1.2 (5.02.2020)
+
+- Fixed ``__init__.py`` (to ensure correct implementation of import).
+- Added ``__main__.py`` (to improve the command line experience).
 
 .. rubric:: 1.1.1 (4.02.2020)
 

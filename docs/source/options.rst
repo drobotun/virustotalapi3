@@ -13,17 +13,15 @@ This feature has been implemented since version 1.1.0. Using the command line op
 - get a report on the results of IP address analysis;
 - get a report on the results of domain analysis.
 
+-----
+
 Сommon format
 -------------
 
 .. code-block:: bash
 
-    vtapi3.py <resource> [-h], [-fid], [-fsr], [-far], [-hr], [-uid], [-usr], [-uar], [-ipr] or [-dr]
+    $ python -m vtapi3 <resource> [-h], [-fid], [-fsr], [-far], [-hr], [-uid], [-usr], [-uar], [-ipr] or [-dr]
 
-.. rubric:: Example
-
-.. image:: https://i.imgur.com/lKXbiyV.png
-	
 Positional arguments
 --------------------
 
@@ -33,6 +31,8 @@ resource
 ''''''''
 
     Object that you want to analyse in VirusTotal (file, URL, IP address or domain). The file path, file hash (SHA1, SHA256, or MD5), URL, IP address, or domain name can be used.
+
+-----
 
 Optional arguments
 ------------------
@@ -44,10 +44,6 @@ Optional arguments
 
     Show help message and exit.
 
-.. rubric:: Example
-
-.. image:: https://i.imgur.com/Xolqs1O.png
-
 -----
 
 .. index:: --file-id
@@ -57,10 +53,6 @@ Optional arguments
 
     Getting the identifier of the file for further analysis.
 	
-.. rubric:: Example
-
-.. image:: https://i.imgur.com/TK5D9an.png
-
 -----
 
 .. index:: --file-scan-report
@@ -70,10 +62,6 @@ Optional arguments
 
     Getting a report on the results of scanning a file.
 	
-.. rubric:: Example
-
-.. image:: https://i.imgur.com/Eu2S6IM.png
-
 -----
 
 .. index:: --file-analyse-report
@@ -83,10 +71,6 @@ Optional arguments
 
     Getting a report on the results of file analysis (enabled by default).
 	
-.. rubric:: Example
-
-.. image:: https://i.imgur.com/gXUtj84.png
-
 .. rubric:: Example JSON response
 
 ::
@@ -192,10 +176,6 @@ Optional arguments
 
     Getting a report on the results of analyzing a file by its hash (SHA256, SHA1 or MD5).
 
-.. rubric:: Example
-	
-.. image:: https://i.imgur.com/ZIQyyqL.png
-
 -----
 
 .. index:: --url-id
@@ -205,10 +185,6 @@ Optional arguments
     
 	Getting the identifier of the URL for further analysis.
 	
-.. rubric:: Example
-	
-.. image:: https://i.imgur.com/N21iAlX.png
-
 -----
 	
 .. index:: --url-scan-report
@@ -218,10 +194,6 @@ Optional arguments
 
     Getting a report on the results of scanning a URL.
 	
-.. rubric:: Example
-	
-.. image:: https://i.imgur.com/WvBPujg.png
-
 -----
 	
 .. index:: --url-analyse-report
@@ -231,10 +203,6 @@ Optional arguments
 
     Getting a report on the results of URL analysis.
 	
-.. rubric:: Example
-	
-.. image:: https://i.imgur.com/wylog8L.png
-
 -----
 
 .. index:: --ip-report
@@ -244,10 +212,6 @@ Optional arguments
 
     Getting a report on the results of IP address analysis.
 	
-.. rubric:: Example
-	
-.. image:: https://i.imgur.com/m8AvdSb.png
-
 .. rubric:: Example JSON response
 
 ::
@@ -276,10 +240,6 @@ Optional arguments
 
     Getting a report on the results of domain analysis.
 	
-.. rubric:: Example
-	
-.. image:: https://i.imgur.com/IQiECZC.png
-
 .. rubric:: Example JSON response
 
 ::
