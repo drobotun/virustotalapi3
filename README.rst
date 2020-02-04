@@ -118,7 +118,7 @@ In python programs
 From command line (added in version 1.1.0)
 ''''''''''''''''''''''''''''''''''''''''''
 
-Before using the package from the command line, you must create an environment variable VT_API_KEY in which to place the value of the access key to the VirusTotal API functions.
+Before using the package from the command line, you must create an environment variable ``VT_API_KEY`` in which to place the value of the access key to the VirusTotal API functions.
 
 ::
 
