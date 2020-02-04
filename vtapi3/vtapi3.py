@@ -143,6 +143,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            Exception
               VirusTotalAPIError(File not found): In case the file is not found.
               VirusTotalAPIError(Permission error): In case do not have access rights to the file.
+              VirusTotalAPIError(IO Error): If an IO error occurs during file operations.
         """
         buffer_size = 65536
         hasher = hashlib.new(hash_alg)
@@ -156,6 +157,8 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('File not found', errno.ENOENT)
         except PermissionError:
             raise VirusTotalAPIError('Permission error', errno.EPERM)
+        except OSError:
+            raise VirusTotalAPIError('IO Error', errno.EIO)
         else:
             return hasher.hexdigest()
 
@@ -174,6 +177,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
            VirusTotalAPIError(File not found): In case the file you want to upload to the server is
               not found.
            VirusTotalAPIError(Permission error): In case do not have access rights to the file.
+           VirusTotalAPIError(IO Error): If an IO error occurs during file operations.
         """
         self._last_http_error = None
         self._last_result = None
@@ -191,6 +195,8 @@ class VirusTotalAPIFiles(VirusTotalAPI):
             raise VirusTotalAPIError('Timeout error', errno.ETIMEDOUT)
         except requests.exceptions.ConnectionError:
             raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
+        except OSError:
+            raise VirusTotalAPIError('IO Error', errno.EIO)
         else:
             self._last_http_error = response.status_code
             self._last_result = response.content
@@ -1274,7 +1280,7 @@ def get_file_id_to_analyse(file_path, api_key):
         result = vt_files.upload(file_path)
         if vt_files.get_last_http_error() == vt_files.HTTP_OK:
             result = json.loads(result)
-            return 'File ID: ' + result['data']['id']
+            return 'File ID: ' + str(result['data']['id'])
         else:
             return 'HTTP error ' + str(vt_files.get_last_http_error())
     except VirusTotalAPIError as err:
@@ -1295,7 +1301,7 @@ def get_file_scan_report(file_path, api_key):
         result = vt_files.upload(file_path)
         if vt_files.get_last_http_error() == vt_files.HTTP_OK:
             result = json.loads(result)
-            file_id = result['data']['id']
+            file_id = str(result['data']['id'])
         else:
             return 'HTTP error ' + str(vt_files.get_last_http_error())
         vt_analyses = VirusTotalAPIAnalyses(api_key)

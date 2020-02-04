@@ -19,5 +19,6 @@ This guide describes how to use the vtapi3 Python module.
    ip_class
    analyses_class
    error_class
+   options
 
 * :ref:`genindex`
