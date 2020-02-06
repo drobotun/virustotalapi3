@@ -4,11 +4,7 @@ import errno
 import os
 
 from vtapi3 import (VirusTotalAPI, VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
-                    VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError,
-                    get_environment_api_key, get_file_id_to_analyse, get_file_scan_report,
-                    get_file_analyse_report, get_hash_report, get_url_id_to_analyse,
-                    get_url_scan_report, get_url_analyse_report, get_ip_report,
-                    get_domain_report)
+                    VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError)
 
 API_KEY = '<Insert VirusTotal API key>'
 
@@ -1259,71 +1255,6 @@ class TestAnalyses(unittest.TestCase):
             print('\nResult: ', json.dumps(result, sort_keys=False, indent=4))
         http_err = vt_analyses_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_analyses_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
-
-
-class TestMain(unittest.TestCase):
-
-    def test_get_environment_api_key(self):
-        os.environ['VT_API_KEY'] = 'test_api_key'
-        test_api_key = get_environment_api_key()
-        self.assertEqual(test_api_key, 'test_api_key')
-
-    def test_get_environment_wrong_api_key(self):
-        if 'VT_API_KEY' in os.environ:
-            os.environ.pop('VT_API_KEY')
-        try:
-            test_api_key = get_environment_api_key()
-        except VirusTotalAPIError as err:
-            err_code = err.err_code
-        self.assertEqual(err_code, errno.EINVAL)
-
-    def test_get_file_id_to_analyse_error_file(self):
-        result = get_file_id_to_analyse('', API_KEY)
-        self.assertEqual(result.err_code, errno.ENOENT)
-
-    def test_get_file_id_to_analyse_wrong_api_key(self):
-        result = get_file_id_to_analyse(TEST_FILE, '')
-        self.assertEqual(result, 'HTTP error 401')
-
-    def test_get_file_scan_report_error_file(self):
-        result = get_file_scan_report('', API_KEY)
-        self.assertEqual(result.err_code, errno.ENOENT)
-
-    def test_get_file_scan_report_wrong_api_key(self):
-        result = get_file_scan_report(TEST_FILE, '')
-        self.assertEqual(result, 'HTTP error 401')   
-
-    def test_get_file_analyse_report_error_file(self):
-        result = get_file_analyse_report('', API_KEY)
-        self.assertEqual(result.err_code, errno.ENOENT)
-
-    def test_get_file_analyse_report_wrong_api_key(self):
-        result = get_file_analyse_report(TEST_FILE, '')
-        self.assertEqual(result, 'HTTP error 401')
-
-    def test_get_hash_report_wrong_api_key(self):
-        result = get_hash_report(TEST_FILE_ID_SHA256, API_KEY)
-        self.assertEqual(result, 'HTTP error 401')        
-
-    def test_get_url_id_to_analyse_wrong_api_key(self):
-        result = get_url_id_to_analyse(TEST_URL, '')
-        self.assertEqual(result, 'HTTP error 401')
-
-    def test_get_url_scan_report_wrong_api_key(self):
-        result = get_url_scan_report(TEST_URL, '')
-        self.assertEqual(result, 'HTTP error 401')
-
-    def test_get_url_analyse_report_wrong_api_key(self):
-        result = get_url_analyse_report(TEST_URL, '')
-        self.assertEqual(result, 'HTTP error 401')
-
-    def test_get_ip_report_wrong_api_key(self):
-        result = get_ip_report(TEST_IP, '')
-        self.assertEqual(result, 'HTTP error 401')
-
-    def test_get_domain_report_wrong_api_key(self):
-        result = get_domain_report(TEST_DOMAIN, '')
-        self.assertEqual(result, 'HTTP error 401')
 
 if __name__ == '__main__':
     unittest.main()
