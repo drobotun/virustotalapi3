@@ -30,7 +30,7 @@ class TestMain(unittest.TestCase):
         if 'VT_API_KEY' in os.environ:
             os.environ.pop('VT_API_KEY')
         try:
-            test_api_key = get_environment_api_key()
+            get_environment_api_key()
         except vtapi3.VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.EINVAL)

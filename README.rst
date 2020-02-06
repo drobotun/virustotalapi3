@@ -75,7 +75,7 @@ Installation
 
 .. code-block:: bash
 
-    $ pip install vtapi3
+    pip install vtapi3
 
 Usage
 """""
@@ -122,9 +122,9 @@ Before using the package from the command line, you must create an environment v
 
 ::
 
-    $ python -m vtapi3  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
-                        [-dr]
-                        resource
+    python -m vtapi3  [-h] [-fid] [-fsr] [-far] [-hr] [-uid] [-usr] [-uar] [-ipr]
+                      [-dr]
+                      resource
 
 .. rubric:: Positional arguments
 
@@ -153,50 +153,6 @@ Documentation
 
 Documentation for using this package: https://virustotalapi3.readthedocs.io
 
-Release History
-===============
-
-1.1.2 (5.02.2020)
-"""""""""""""""""
-
-- Fixed ``__init__.py`` (to ensure correct implementation of import).
-- Added ``__main__.py`` (to improve the command line experience).
-
-1.1.1 (4.02.2020)
-"""""""""""""""""
-
-- Fixed several errors in the ``get_file_id_to_analyse()`` and ``get_url_id_to_analyse functions()``.
-- Added VirusTotalAPIError(IO Error) exception in the ``get_file_id()`` and ``upload()`` functions of the VirusTotalAPIFiles class.
-
-1.1.0 (3.02.2020)
-"""""""""""""""""
-
-- Added the ability to performance the package from the command line.
-
-1.0.4 (1.02.2020)
-"""""""""""""""""
-
-- Fixing README.rst for better PYPI presentation.
-
-1.0.3 (26.01.2020)
-""""""""""""""""""
-
-- Added a new attribute ``_last_result`` to the VirustotalAPI base class.
-- Added a new method ``get_last_result`` to the VirustotalAPI base class.
-
-1.0.2 (12.01.2020)
-""""""""""""""""""
-
-- Fixed errors in source comments.
-- Fixing README.rst for better PYPI presentation.
-- Fixing setup.py for better PYPI presentation.
-- README.rst translated into English.
-- Added two tests (``test_get_version_avi()`` and ``test_get_lost_http_error ()``) in test_vt_3.py
-
-1.0.1 (08.01.2020)
-""""""""""""""""""
-
-- First release of vtapi3
 
 .. |POST| image:: https://i.imgur.com/CWgYjh1.png
 .. |GET| image:: https://i.imgur.com/CBcN0Fh.png

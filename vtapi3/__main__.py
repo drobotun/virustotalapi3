@@ -8,14 +8,14 @@ import vtapi3
 def get_environment_api_key():
     """Returns the value of the API key from environment variables. To work correctly, you need
        to create an environment variable VT_API_KEY and write the current API key value to it.
-       
+
        Return:
            The API key value from the environment variable VT_API_KEY.
 
         Exception
            VirusTotalAPIError(API key environment error): If there is no environment variable
               VT_API_KEY.
-       
+
     """
     if 'VT_API_KEY' in os.environ:
         return os.environ['VT_API_KEY']
@@ -24,11 +24,11 @@ def get_environment_api_key():
 
 def get_file_id_to_analyse(file_path, api_key):
     """Returns the file ID for further analysis on VirusTotal.
-    
+
        Args:
           file_path: Path to the file for which you want to get the ID (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The file ID if successful, or error message if not.
     """
@@ -37,19 +37,20 @@ def get_file_id_to_analyse(file_path, api_key):
         result = vt_files.upload(file_path)
         if vt_files.get_last_http_error() == vt_files.HTTP_OK:
             result = json.loads(result)
-            return 'File ID: ' + str(result['data']['id'])
+            result = 'File ID: ' + str(result['data']['id'])
         else:
-            return 'HTTP error ' + str(vt_files.get_last_http_error())
+            result = 'HTTP error ' + str(vt_files.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
         return err
 
 def get_file_scan_report(file_path, api_key):
     """Returns an analysis report for a file uploaded to VirusTotal.
-    
+
        Args:
           file_path: Path to the file to be analyzed on VirusTotal (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The report on the results of the analysis if successful, or error message if not.
     """
@@ -59,25 +60,26 @@ def get_file_scan_report(file_path, api_key):
         if vt_files.get_last_http_error() == vt_files.HTTP_OK:
             result = json.loads(result)
             file_id = str(result['data']['id'])
+            vt_analyses = vtapi3.VirusTotalAPIAnalyses(api_key)
+            result = vt_analyses.get_report(file_id)
+            if vt_analyses.get_last_http_error() == vt_analyses.HTTP_OK:
+                result = json.loads(result)
+                result = 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            else:
+                result = 'HTTP error ' + str(vt_analyses.get_last_http_error())
         else:
-            return 'HTTP error ' + str(vt_files.get_last_http_error())
-        vt_analyses = vtapi3.VirusTotalAPIAnalyses(api_key)
-        result = vt_analyses.get_report(file_id)
-        if vt_analyses.get_last_http_error() == vt_analyses.HTTP_OK:
-            result = json.loads(result)
-            return 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
-        else:
-            return 'HTTP error ' + str(vt_analyses.get_last_http_error())
+            result = 'HTTP error ' + str(vt_files.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
-        return err    
+        return err
 
 def get_file_analyse_report(file_path, api_key):
     """Returns an analysis report for a file in the VirusTotal database.
-    
+
        Args:
           file_path: Path to the file for which you want to get the analysis report (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The report on the results of the analysis if successful, or error message if not.
     """
@@ -87,20 +89,21 @@ def get_file_analyse_report(file_path, api_key):
         result = vt_files.get_report(file_id)
         if vt_files.get_last_http_error() == vt_files.HTTP_OK:
             result = json.loads(result)
-            return 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result = 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            return 'HTTP error ' + str(vt_files.get_last_http_error())
+            result = 'HTTP error ' + str(vt_files.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
-        return err    
+        return err
 
 def get_hash_report(hash_id, api_key):
     """Returns an analysis report for a file in the VirusTotal database.
-    
+
        Args:
           hash_id: Hash (SHA256, SHA1 or MD5) of the file for which you want to get an analysis
              report (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The report on the results of the analysis if successful, or error message if not.
     """
@@ -109,19 +112,20 @@ def get_hash_report(hash_id, api_key):
         result = vt_files.get_report(hash_id)
         if vt_files.get_last_http_error() == vt_files.HTTP_OK:
             result = json.loads(result)
-            return 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result = 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            return 'HTTP error ' + str(vt_files.get_last_http_error())
+            result = 'HTTP error ' + str(vt_files.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
         return err
 
 def get_url_id_to_analyse(url, api_key):
     """Returns the URL ID for further analysis on VirusTotal.
-    
+
        Args:
           url: URL address for which you want to get an ID (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The URL ID if successful, or error message if not.
     """
@@ -130,19 +134,20 @@ def get_url_id_to_analyse(url, api_key):
         result = vt_urls.upload(url)
         if vt_urls.get_last_http_error() == vt_urls.HTTP_OK:
             result = json.loads(result)
-            return 'URL ID: ' + result['data']['id']
+            result = 'URL ID: ' + result['data']['id']
         else:
-            return 'HTTP error ' + str(vt_urls.get_last_http_error())
+            result = 'HTTP error ' + str(vt_urls.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
         return err
 
 def get_url_scan_report(url, api_key):
     """Returns an analysis report for a URL uploaded to VirusTotal.
-    
+
        Args:
           url: URL to be analyzed on VirusTotal (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The report on the results of the analysis if successful, or error message if not.
     """
@@ -152,25 +157,26 @@ def get_url_scan_report(url, api_key):
         if vt_urls.get_last_http_error() == vt_urls.HTTP_OK:
             result = json.loads(result)
             url_id = result['data']['id']
+            vt_analyses = vtapi3.VirusTotalAPIAnalyses(api_key)
+            result = vt_analyses.get_report(url_id)
+            if vt_analyses.get_last_http_error() == vt_analyses.HTTP_OK:
+                result = json.loads(result)
+                result = 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            else:
+                result = 'HTTP error ' + str(vt_analyses.get_last_http_error())
         else:
-            return 'HTTP error ' + str(vt_urls.get_last_http_error())
-        vt_analyses = vtapi3.VirusTotalAPIAnalyses(api_key)
-        result = vt_analyses.get_report(url_id)
-        if vt_analyses.get_last_http_error() == vt_analyses.HTTP_OK:
-            result = json.loads(result)
-            return 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
-        else:
-            return 'HTTP error ' + str(vt_analyses.get_last_http_error())
+            result = 'HTTP error ' + str(vt_urls.get_last_http_error())
+        return result       
     except vtapi3.VirusTotalAPIError as err:
         return err
 
 def get_url_analyse_report(url, api_key):
     """Returns an analysis report for a URL in the VirusTotal database.
-    
+
        Args:
           url: URL for which you want to get the analysis report (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The report on the results of the analysis if successful, or error message if not.
     """
@@ -180,19 +186,20 @@ def get_url_analyse_report(url, api_key):
         result = vt_urls.get_report(url_id)
         if vt_urls.get_last_http_error() == vt_urls.HTTP_OK:
             result = json.loads(result)
-            return 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result =  'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            return 'HTTP error ' + str(vt_urls.get_last_http_error())
+            result =  'HTTP error ' + str(vt_urls.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
         return err
 
 def get_ip_report(ip_address, api_key):
     """Returns a report on the results of IP address analysis.
-    
+
        Args:
           ip_address: IP address for which you want to get the analysis report (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The report on the results of the analysis if successful, or error message if not.
     """
@@ -201,19 +208,20 @@ def get_ip_report(ip_address, api_key):
         result = vt_ip.get_report(ip_address)
         if vt_ip.get_last_http_error() == vt_ip.HTTP_OK:
             result = json.loads(result)
-            return 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result =  'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            return 'HTTP error ' + str(vt_ip.get_last_http_error())
+            result =  'HTTP error ' + str(vt_ip.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
         return err
 
 def get_domain_report(domain, api_key):
     """Returns a report on the results of domain analysis.
-    
+
        Args:
           domain: Domain for which you want to get the analysis report (str).
           api_key: Access key to VirusTotal API functions (str).
-          
+
        Return:
           The report on the results of the analysis if successful, or error message if not.
     """
@@ -222,9 +230,10 @@ def get_domain_report(domain, api_key):
         result = vt_domain.get_report(domain)
         if vt_domain.get_last_http_error() == vt_domain.HTTP_OK:
             result = json.loads(result)
-            return 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result =  'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            return 'HTTP error ' + str(vt_domain.get_last_http_error())
+            result =  'HTTP error ' + str(vt_domain.get_last_http_error())
+        return result
     except vtapi3.VirusTotalAPIError as err:
         return err
 
@@ -250,9 +259,9 @@ def main():
     parser.add_argument('-hr', '--hash-report', action='store_true', dest='hash_report',
                         help='Getting a report on the results of analyzing a file by its hash (SHA256, SHA1 or MD5)')
     parser.add_argument('-uid', '--url-id', action='store_true', dest='url_id',
-                        help = 'Getting the identifier of the URL for further analysis')
+                        help='Getting the identifier of the URL for further analysis')
     parser.add_argument('-usr', '--url-scan-report', action='store_true', dest='url_scan_report',
-                        help = 'Getting a report on the results of scanning a URL')
+                        help='Getting a report on the results of scanning a URL')
     parser.add_argument('-uar', '--url-analyse-report', action='store_true', dest='url_analyse_report',
                         help='Getting a report on the results of URL analysis')
     parser.add_argument('-ipr', '--ip-report', action='store_true', dest='ip_report',
@@ -260,7 +269,7 @@ def main():
     parser.add_argument('-dr', '--domain-report', action='store_true', dest='domain_report',
                         help='Getting a report on the results of domain analysis')
     options = parser.parse_args()
-    
+
     if options.file_id:
         print(get_file_id_to_analyse(options.resource, api_key))
     elif options.file_scan_report:

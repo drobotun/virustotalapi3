@@ -1242,4 +1242,3 @@ class VirusTotalAPIError(Exception):
         """
         super().__init__(message)
         self.err_code = err_code
-
