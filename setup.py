@@ -6,11 +6,11 @@ with open('README.rst', 'r', encoding='utf-8') as readme_file:
 
 setup(
     name='vtapi3',
-    version=vtapi3.__version__,
-    description='VirusTotal API',
-    long_description=readme,
-    author='Evgeny Drobotun',
-    author_email='drobotun@xakep.ru',
+    version = vtapi3.__version__,
+    description = 'VirusTotal API',
+    long_description = readme,
+    author = vtapi3.__author__,
+    author_email = vtapi3.__author_email__,
     url='https://github.com/drobotun/virustotalapi3/',
     zip_safe=False,
     license=vtapi3.__license__,
@@ -24,7 +24,6 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.7',
     ],
-    #test_suite=['test_vtapi3', 'test_vtapi3_main'],
     packages=find_packages(),
     install_requires=['requests >= 2.22.0']
     )
