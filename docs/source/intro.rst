@@ -140,6 +140,10 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 Release History
 ===============
 
+.. rubric:: 1.1.3 (7.02.2020)
+
+- Fixed several bugs in ``__main__.ru``
+
 .. rubric:: 1.1.2 (5.02.2020)
 
 - Fixed ``__init__.py`` (to ensure correct implementation of import).
