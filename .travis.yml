@@ -5,8 +5,15 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
+before_install:
+  - pip install codecov
+
 install:
   - pip install requests
+
 script:
   - python setup.py install
   - pytest -v
+
+after_success:
+  - codecov
