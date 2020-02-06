@@ -8,13 +8,11 @@ python:
 
 install:
   - pip install requests
-  - pip install codecov
+  - pip install pytest pytest-cov
 
 script:
   - python setup.py install
-  - pytest -v
-  - coverage run test_vtapi3.py
-  - coverage run test_vtapi3_main.py
+  - pytest --cov=./
 
 after_success:
   - codecov
