@@ -12,7 +12,7 @@ install:
 
 script:
   - python setup.py install
-  - pytest --cov=vtapi3 --cov-report xml
+  - pytest --cov=vtapi3
 
 after_success:
   - codecov
