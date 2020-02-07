@@ -8,12 +8,16 @@ VirusTotal API 3 version
     :target: http://doge.mit-license.org
 .. image:: https://travis-ci.org/drobotun/virustotalapi3.svg?branch=master
     :target: https://travis-ci.org/drobotun/virustotalapi3
+.. image:: https://ci.appveyor.com/api/projects/status/tto83lriiwdkq55q?svg=true
+    :target: https://ci.appveyor.com/project/drobotun/virustotalapi3
+	
 .. image:: https://img.shields.io/pypi/v/vtapi3
-    :target: https://pypi.org/project/vtapi3/
+    :target: https://pypi.org/project/vtapi3/	
 .. image:: https://img.shields.io/pypi/pyversions/vtapi3
     :target: https://pypi.org/project/vtapi3/
 .. image:: https://readthedocs.org/projects/virustotalapi3/badge/?version=latest
     :target: https://virustotalapi3.readthedocs.io/
+	
 .. image:: https://img.shields.io/pypi/dm/vtapi3
     :target: https://pypi.org/project/vtapi3/
 .. image:: https://i.imgur.com/JtZ54GZ.png
