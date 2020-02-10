@@ -10,6 +10,8 @@ VirusTotal API 3 version
     :target: https://travis-ci.org/drobotun/virustotalapi3
 .. image:: https://ci.appveyor.com/api/projects/status/tto83lriiwdkq55q?svg=true
     :target: https://ci.appveyor.com/project/drobotun/virustotalapi3
+.. image:: https://codecov.io/gh/drobotun/virustotalapi3/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/drobotun/virustotalapi3
 .. image:: https://img.shields.io/pypi/v/vtapi3
     :target: https://pypi.org/project/vtapi3/	
 .. image:: https://img.shields.io/pypi/pyversions/vtapi3
