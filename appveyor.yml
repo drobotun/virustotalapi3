@@ -13,4 +13,4 @@ environment:
 install:
   - cmd: "C:\\Python37\\python.exe -m pip install requests"
 build_script:
-  - cmd: "C:\\Python37\\python.exe python setup.py build"
+  - cmd: "C:\\Python37\\python.exe setup.py build"
