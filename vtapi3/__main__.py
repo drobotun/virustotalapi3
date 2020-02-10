@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 import errno
 import argparse
@@ -18,9 +17,10 @@ def get_environment_api_key():
 
     """
     if 'VT_API_KEY' in os.environ:
-        return os.environ['VT_API_KEY']
+        result = os.environ['VT_API_KEY']
     else:
         raise vtapi3.VirusTotalAPIError('API key environment error', errno.EINVAL)
+    return result
 
 def get_file_id_to_analyse(file_path, api_key):
     """Returns the file ID for further analysis on VirusTotal.
@@ -166,7 +166,7 @@ def get_url_scan_report(url, api_key):
                 result = 'HTTP error ' + str(vt_analyses.get_last_http_error())
         else:
             result = 'HTTP error ' + str(vt_urls.get_last_http_error())
-        return result       
+        return result
     except vtapi3.VirusTotalAPIError as err:
         return err
 
@@ -186,9 +186,9 @@ def get_url_analyse_report(url, api_key):
         result = vt_urls.get_report(url_id)
         if vt_urls.get_last_http_error() == vt_urls.HTTP_OK:
             result = json.loads(result)
-            result =  'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result = 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            result =  'HTTP error ' + str(vt_urls.get_last_http_error())
+            result = 'HTTP error ' + str(vt_urls.get_last_http_error())
         return result
     except vtapi3.VirusTotalAPIError as err:
         return err
@@ -208,9 +208,9 @@ def get_ip_report(ip_address, api_key):
         result = vt_ip.get_report(ip_address)
         if vt_ip.get_last_http_error() == vt_ip.HTTP_OK:
             result = json.loads(result)
-            result =  'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result = 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            result =  'HTTP error ' + str(vt_ip.get_last_http_error())
+            result = 'HTTP error ' + str(vt_ip.get_last_http_error())
         return result
     except vtapi3.VirusTotalAPIError as err:
         return err
@@ -230,9 +230,9 @@ def get_domain_report(domain, api_key):
         result = vt_domain.get_report(domain)
         if vt_domain.get_last_http_error() == vt_domain.HTTP_OK:
             result = json.loads(result)
-            result =  'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
+            result = 'Analysis report:\n' + json.dumps(result, sort_keys=False, indent=4)
         else:
-            result =  'HTTP error ' + str(vt_domain.get_last_http_error())
+            result = 'HTTP error ' + str(vt_domain.get_last_http_error())
         return result
     except vtapi3.VirusTotalAPIError as err:
         return err
@@ -270,25 +270,26 @@ def main(options):
     try:
         api_key = get_environment_api_key()
         if options.file_id:
-            return get_file_id_to_analyse(options.resource, api_key)
+            result = get_file_id_to_analyse(options.resource, api_key)
         elif options.file_scan_report:
-            return get_file_scan_report(options.resource, api_key)
+            result = get_file_scan_report(options.resource, api_key)
         elif options.file_analyse_report:
-            return get_file_analyse_report(options.resource, api_key)
+            result = get_file_analyse_report(options.resource, api_key)
         elif options.hash_report:
-            return get_hash_report(options.resource, api_key)
+            result = get_hash_report(options.resource, api_key)
         elif options.url_id:
-            return get_url_id_to_analyse(options.resource, api_key)
+            result = get_url_id_to_analyse(options.resource, api_key)
         elif options.url_scan_report:
-            return get_url_scan_report(options.resource, api_key)
+            result = get_url_scan_report(options.resource, api_key)
         elif options.url_analyse_report:
-            return get_url_analyse_report(options.resource, api_key)
+            result = get_url_analyse_report(options.resource, api_key)
         elif options.ip_report:
-            return get_ip_report(options.resource, api_key)
+            result = get_ip_report(options.resource, api_key)
         elif options.domain_report:
-            return get_domain_report(options.resource, api_key)
+            result = get_domain_report(options.resource, api_key)
         else:
-            return get_file_analyse_report(options.resource, api_key)
+            result = get_file_analyse_report(options.resource, api_key)
+        return result
     except vtapi3.VirusTotalAPIError as err:
         print(err)
         print('\nTo work correctly, you need the VT_API_KEY environment variable')
