@@ -18,7 +18,7 @@ VirusTotal API 3 version
 	:target: https://scrutinizer-ci.com/g/drobotun/virustotalapi3/
 .. image:: https://img.shields.io/pypi/v/vtapi3
     :target: https://pypi.org/project/vtapi3/	
-.. image:: https://img.shields.io/pypi/pyversions/vtapi3
+.. image:: https://img.shields.io/pypi/pyversions/vtapi3.svg?logo=python&logoColor=FBE072
     :target: https://pypi.org/project/vtapi3/
 .. image:: https://img.shields.io/pypi/status/vtapi3
     :target: https://pypi.org/project/vtapi3/
