@@ -5,5 +5,10 @@ __author_email__ = 'drobotun@xakep.ru'
 __license__ = 'MIT'
 __copyright__ = 'Copyright (C) 2020 Evgeny Drobotun'
 
-from .vtapi3 import (VirusTotalAPI, VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
-                     VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError)
+from .vtapi3base import VirusTotalAPI
+from .vtapi3files import VirusTotalAPIFiles
+from .vtapi3urls import VirusTotalAPIUrls
+from .vtapi3domains import VirusTotalAPIDomains
+from .vtapi3ipaddresses import VirusTotalAPIIPAddresses
+from .vtapi3analyses import VirusTotalAPIAnalyses
+from .vtapi3error import VirusTotalAPIError
