@@ -12,3 +12,5 @@ environment:
     - PYTHON: "C:\\Python38-x64"
 install:
   - "pip install requests"
+build_script:
+  - "python setup.py build"
