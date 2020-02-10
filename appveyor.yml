@@ -14,3 +14,5 @@ install:
   - cmd: "C:\\Python37\\python.exe -m pip install requests"
 build_script:
   - cmd: "C:\\Python37\\python.exe setup.py build"
+test_script:
+  - cmd: "C:\\Python37\\python.exe setup.py test"
