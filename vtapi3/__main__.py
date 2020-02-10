@@ -237,16 +237,7 @@ def get_domain_report(domain, api_key):
     except vtapi3.VirusTotalAPIError as err:
         return err
 
-def main():
-    print('\nThe vtapi3 package. Implements the VirusTotal service API functions (3 versions).')
-    print('MIT Copyright (c) 2020, Evgeny Drobotun\n')
-    try:
-        api_key = get_environment_api_key()
-    except vtapi3.VirusTotalAPIError as err:
-        print(err)
-        print('\nTo work correctly, you need the VT_API_KEY environment variable')
-        print('with the current access key to the VirusTotal API functions.')
-        sys.exit()
+def create_cmd_parser():
     parser = argparse.ArgumentParser(prog='vtapi3')
     parser.add_argument('resource',
                         help='Object that you want to analyse in VirusTotal (file, URL, IP address or domain)')
@@ -268,28 +259,41 @@ def main():
                         help='Getting a report on the results of IP address analysis')
     parser.add_argument('-dr', '--domain-report', action='store_true', dest='domain_report',
                         help='Getting a report on the results of domain analysis')
-    options = parser.parse_args()
+    return parser
 
-    if options.file_id:
-        print(get_file_id_to_analyse(options.resource, api_key))
-    elif options.file_scan_report:
-        print(get_file_scan_report(options.resource, api_key))
-    elif options.file_analyse_report:
-        print(get_file_analyse_report(options.resource, api_key))
-    elif options.hash_report:
-        print(get_hash_report(options.resource, api_key))
-    elif options.url_id:
-        print(get_url_id_to_analyse(options.resource, api_key))
-    elif options.url_scan_report:
-        print(get_url_scan_report(options.resource, api_key))
-    elif options.url_analyse_report:
-        print(get_url_analyse_report(options.resource, api_key))
-    elif options.ip_report:
-        print(get_ip_report(options.resource, api_key))
-    elif options.domain_report:
-        print(get_domain_report(options.resource, api_key))
-    else:
-        print(get_file_analyse_report(options.resource, api_key))
+def get_cmd_options(parser):
+    return parser.parse_args()
+
+def main(options):
+    print('\nThe vtapi3 package. Implements the VirusTotal service API functions (3 versions).')
+    print('MIT Copyright (c) 2020, Evgeny Drobotun\n')
+    try:
+        api_key = get_environment_api_key()
+        if options.file_id:
+            return get_file_id_to_analyse(options.resource, api_key)
+        elif options.file_scan_report:
+            return get_file_scan_report(options.resource, api_key)
+        elif options.file_analyse_report:
+            return get_file_analyse_report(options.resource, api_key)
+        elif options.hash_report:
+            return get_hash_report(options.resource, api_key)
+        elif options.url_id:
+            return get_url_id_to_analyse(options.resource, api_key)
+        elif options.url_scan_report:
+            return get_url_scan_report(options.resource, api_key)
+        elif options.url_analyse_report:
+            return get_url_analyse_report(options.resource, api_key)
+        elif options.ip_report:
+            return get_ip_report(options.resource, api_key)
+        elif options.domain_report:
+            return get_domain_report(options.resource, api_key)
+        else:
+            return get_file_analyse_report(options.resource, api_key)
+    except vtapi3.VirusTotalAPIError as err:
+        print(err)
+        print('\nTo work correctly, you need the VT_API_KEY environment variable')
+        print('with the current access key to the VirusTotal API functions.')
+        return err
 
 if __name__ == '__main__':
-    main()
+    print(main(get_cmd_options(create_cmd_parser())))
