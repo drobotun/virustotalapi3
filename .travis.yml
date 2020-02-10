@@ -9,6 +9,7 @@ python:
 install:
   - pip install requests
   - pip install codecov
+  - pip install coveralls
   - pip install pytest pytest-cov
 
 script:
@@ -17,3 +18,4 @@ script:
 
 after_success:
   - codecov
+  - coveralls
