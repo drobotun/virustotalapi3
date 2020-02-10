@@ -1,8 +1,6 @@
 import unittest
 import json
 import errno
-import os
-import stat
 
 from vtapi3 import (VirusTotalAPI, VirusTotalAPIFiles, VirusTotalAPIUrls, VirusTotalAPIDomains,
                     VirusTotalAPIIPAddresses, VirusTotalAPIAnalyses, VirusTotalAPIError)
