@@ -31,7 +31,7 @@ VirusTotal API 3 version
 .. image:: https://i.imgur.com/JtZ54GZ.png
     :target: https://xakep.ru/2020/01/09/virustotal-api/#xakepcut
 
-The module that implements the service API functions www.virustotal.com (3 versions) available using the public key.
+The module that implements the service API functions www.virustotal.com (3 versions).
 For a detailed description of the API, see: https://developers.virustotal.com/v3.0/reference.
 
 The following VirusTotal API functions are implemented:
@@ -48,6 +48,8 @@ The following VirusTotal API functions are implemented:
 - |POST| /files/{id}/votes
 - |GET| /files/{id}/{relationship}
 - |GET| /file_behaviours/{sandbox_id}/pcap
+- |GET| /files/{id}/download_url (Added in version 1.2.0, requires a private key to access API functions)
+- |GET| /files/{id}/download (Added in version 1.2.0, requires a private key to access API functions)
 
 **For URLs:**
 

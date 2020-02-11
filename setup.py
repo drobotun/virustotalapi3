@@ -28,6 +28,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.7',
     ],
+    test_suite="tests",
     packages=find_packages(),
     install_requires=['requests >= 2.22.0']
     )

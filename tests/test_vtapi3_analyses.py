@@ -4,8 +4,12 @@ import errno
 
 from vtapi3 import VirusTotalAPI, VirusTotalAPIAnalyses, VirusTotalAPIError
 
-from tests.test_vtapi3_const import (API_KEY, TEST_URL_ID, TEST_FILE_ID, 
-                                     TEST_TIMEOUT, PRINT_RESULT)
+API_KEY = '<Insert VirusTotal API key>'
+TEST_FILE_ID = 'ZTRiNjgxZmJmZmRkZTNlM2YyODlkMzk5MTZhZjYwNDI6MTU3NjYwMTE1Ng=='
+TEST_URL_ID = 'u-dce9e8fbe86b145e18f9dcd4aba6bba9959fdff55447a8f9914eb9c4fc1931f9-1576610003'
+TEST_TIMEOUT = 0.01
+PRINT_RESULT = False
+TEST_BASE_URL = 'https://www.fgykhjfhgyf.try'
 
 class TestAnalyses(unittest.TestCase):
 
@@ -46,6 +50,16 @@ class TestAnalyses(unittest.TestCase):
         except VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
+
+    def test_get_report_connection_error(self):
+        err_code = 0
+        vt_analyses = VirusTotalAPIAnalyses(API_KEY)
+        vt_analyses.base_url = TEST_BASE_URL
+        try:
+            result = vt_analyses.get_report(TEST_FILE_ID)
+        except VirusTotalAPIError as err:
+            err_code = err.err_code
+        self.assertEqual(err_code, errno.ECONNABORTED)
 
     def test_get_report_wrong_api_key(self):
         vt_analyses_wrong_api_key = VirusTotalAPIAnalyses('')

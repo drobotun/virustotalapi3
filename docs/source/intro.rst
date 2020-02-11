@@ -20,6 +20,8 @@ The vtapi3 module implements the following VirusTotal API functions:
 - |POST| /files/{id}/votes
 - |GET| /files/{id}/{relationship}
 - |GET| /file_behaviours/{sandbox_id}/pcap
+- |GET| /files/{id}/download_url (Added in version 1.2.0, requires a private key to access API functions)
+- |GET| /files/{id}/download (Added in version 1.2.0, requires a private key to access API functions)
 
 **For URLs:**
 
@@ -139,6 +141,13 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 
 Release History
 ===============
+
+.. rubric:: 1.2.0 (11.02.2020)
+
+- Сhanged the structure of files and directories of the module.
+- Added the ``get_download_url()`` and ``get_download()`` functions (``VirusTotalAPIFiles`` class).
+- The ``main()`` function was refactored in ``__main__.py``.
+- Сhanged the structure and composition (added tests for checking functions when the "Connection Error" error occurs) of tests (the value of code coverage by tests is 93%).
 
 .. rubric:: 1.1.3 (7.02.2020)
 

@@ -29,6 +29,8 @@ class VirusTotalAPIFiles(VirusTotalAPI):
           put_votes(): Add a votes to a file.
           get_relationship(): Retrieve objects related to a file.
           get_behaviours(): Get the PCAP for the sandbox.
+          get_download_url(): Get a download URL for a file (special privileges required).
+          get_download(): Download a file (special privileges required).
     """
 
     @staticmethod
@@ -361,6 +363,62 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         self._last_http_error = None
         self._last_result = None
         api_url = self.base_url + '/file_behaviours/' + sandbox_id + '/pcap'
+        try:
+            response = requests.get(api_url, headers=self.headers,
+                                    timeout=self.timeout, proxies=self.proxies)
+        except requests.exceptions.Timeout:
+            raise VirusTotalAPIError('Timeout error', errno.ETIMEDOUT)
+        except requests.exceptions.ConnectionError:
+            raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
+        else:
+            self._last_http_error = response.status_code
+            self._last_result = response.content
+            return response.content
+
+    def get_download_url(self, file_id):
+        """Get a download URL for a file. This function requires special privileges
+           (you need a private key to access the VirusTotal API).
+        Args:
+           file_id: SHA-256, SHA-1 or MD5 identifying the file (str).
+
+        Return:
+           The response from the server as a byte sequence.
+
+        Exception
+           VirusTotalAPIError(Connection error): In case of server connection errors.
+           VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
+        """
+        self._last_http_error = None
+        self._last_result = None
+        api_url = self.base_url + '/files' + file_id + '/download_url'
+        try:
+            response = requests.get(api_url, headers=self.headers,
+                                    timeout=self.timeout, proxies=self.proxies)
+        except requests.exceptions.Timeout:
+            raise VirusTotalAPIError('Timeout error', errno.ETIMEDOUT)
+        except requests.exceptions.ConnectionError:
+            raise VirusTotalAPIError('Connection error', errno.ECONNABORTED)
+        else:
+            self._last_http_error = response.status_code
+            self._last_result = response.content
+            return response.content
+
+    def get_download(self, file_id):
+        """Download a file. This function requires special privileges (you need a private
+           key to access the VirusTotal API).
+        Args:
+           file_id: SHA-256, SHA-1 or MD5 identifying the file (str).
+
+        Return:
+           The response from the server as a byte sequence.
+
+        Exception
+           VirusTotalAPIError(Connection error): In case of server connection errors.
+           VirusTotalAPIError(Timeout error): If the response timeout from the server is exceeded.
+        """
+        self._last_http_error = None
+        self._last_result = None
+        api_url = self.base_url + '/files' + file_id + '/download'
         try:
             response = requests.get(api_url, headers=self.headers,
                                     timeout=self.timeout, proxies=self.proxies)

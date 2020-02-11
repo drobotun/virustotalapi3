@@ -528,3 +528,89 @@ get_behaviours(sandbox_id)
        else:
            print('HTTP Error [' + str(vt_api_files.get_last_http_error()) +']')
        ...
+
+-----
+
+.. index:: get_download_url()
+
+get_download_url(file_id)
+~~~~~~~~~~~~~~~~~~~~~~~~~
+    Get a download URL for a file (added in version 1.2.0).
+
+.. warning:: This function is only available for users with special privileges. You need a private key to access the VirusTotal API.
+
+**Arguments:**
+
+- ``file_id`` : SHA-256, SHA-1 or MD5 identifying the file (str).
+   
+**Return value:**
+
+    The response from the server as a byte sequence.
+
+**Exception:**
+
+- :ref:`error-label` (Connection error): In case of server connection errors.
+- :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
+
+**Usage:**
+
+.. code-block:: python
+
+   from vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
+      ...
+   vt_api_files = VirusTotalAPIFiles('<API key>')
+   try:
+       result = vt_api_files.get_download_url('<file id>')
+   except VirusTotalAPIError as err:
+       print(err, err.err_code)
+   else:
+       if vt_api_files.get_last_http_error() == vt_api_files.HTTP_OK:
+           result = json.loads(result)
+           result = json.dumps(result, sort_keys=False, indent=4)
+           print(result)
+       else:
+           print('HTTP Error [' + str(vt_api_files.get_last_http_error()) +']')
+       ...
+
+-----
+
+.. index:: get_download()
+
+get_download(file_id)
+~~~~~~~~~~~~~~~~~~~~~~~~~
+    Download a file (added in version 1.2.0).
+
+.. warning:: This function is only available for users with special privileges. You need a private key to access the VirusTotal API.
+
+**Arguments:**
+
+- ``file_id`` : SHA-256, SHA-1 or MD5 identifying the file (str).
+   
+**Return value:**
+
+    The response from the server as a byte sequence.
+
+**Exception:**
+
+- :ref:`error-label` (Connection error): In case of server connection errors.
+- :ref:`error-label` (Timeout error): If the response timeout from the server is exceeded.
+
+**Usage:**
+
+.. code-block:: python
+
+   from vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
+      ...
+   vt_api_files = VirusTotalAPIFiles('<API key>')
+   try:
+       result = vt_api_files.get_download('<file id>')
+   except VirusTotalAPIError as err:
+       print(err, err.err_code)
+   else:
+       if vt_api_files.get_last_http_error() == vt_api_files.HTTP_OK:
+           result = json.loads(result)
+           result = json.dumps(result, sort_keys=False, indent=4)
+           print(result)
+       else:
+           print('HTTP Error [' + str(vt_api_files.get_last_http_error()) +']')
+       ...

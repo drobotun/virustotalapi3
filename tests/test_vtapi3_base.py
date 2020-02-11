@@ -2,7 +2,8 @@ import unittest
 import errno
 
 from vtapi3 import VirusTotalAPI
-from tests.test_vtapi3_const import API_KEY
+
+API_KEY = '<Insert VirusTotal API key>'
 
 class TestBase(unittest.TestCase):
 

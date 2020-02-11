@@ -4,8 +4,12 @@ import errno
 
 from vtapi3 import VirusTotalAPI, VirusTotalAPIDomains, VirusTotalAPIError
 
-from tests.test_vtapi3_const import (API_KEY, TEST_COMMENTS, TEST_DOMAIN,
-                                     TEST_TIMEOUT, PRINT_RESULT)
+API_KEY = '<Insert VirusTotal API key>'
+TEST_COMMENTS = 'test_comments'
+TEST_DOMAIN ='www.virustotal.com'
+TEST_TIMEOUT = 0.01
+PRINT_RESULT = False
+TEST_BASE_URL = 'https://www.fgykhjfhgyf.try'
 
 class TestDomain(unittest.TestCase):
 
@@ -36,6 +40,16 @@ class TestDomain(unittest.TestCase):
         except VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
+
+    def test_get_report_connection_error(self):
+        err_code = 0
+        vt_domains = VirusTotalAPIDomains(API_KEY)
+        vt_domains.base_url = TEST_BASE_URL
+        try:
+            result = vt_domains.get_report(TEST_DOMAIN)
+        except VirusTotalAPIError as err:
+            err_code = err.err_code
+        self.assertEqual(err_code, errno.ECONNABORTED)
 
     def test_get_report_wrong_api_key(self):
         vt_domains_wrong_api_key = VirusTotalAPIDomains('')
@@ -74,6 +88,16 @@ class TestDomain(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    def test_get_comments_connection_error(self):
+        err_code = 0
+        vt_domains = VirusTotalAPIDomains(API_KEY)
+        vt_domains.base_url = TEST_BASE_URL
+        try:
+            result = vt_domains.get_comments(TEST_DOMAIN)
+        except VirusTotalAPIError as err:
+            err_code = err.err_code
+        self.assertEqual(err_code, errno.ECONNABORTED)
+
     def test_get_comments_wrong_api_key(self):
         vt_domains_wrong_api_key = VirusTotalAPIDomains('')
         result = vt_domains_wrong_api_key.get_comments(TEST_DOMAIN)
@@ -91,6 +115,16 @@ class TestDomain(unittest.TestCase):
         except VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
+
+    def test_put_comments_connection_error(self):
+        err_code = 0
+        vt_domains = VirusTotalAPIDomains(API_KEY)
+        vt_domains.base_url = TEST_BASE_URL
+        try:
+            result = vt_domains.put_comments(TEST_DOMAIN, TEST_COMMENTS)
+        except VirusTotalAPIError as err:
+            err_code = err.err_code
+        self.assertEqual(err_code, errno.ECONNABORTED)
 
     def test_put_comments_wrong_api_key(self):
         vt_domains_wrong_api_key = VirusTotalAPIDomains('')
@@ -129,6 +163,16 @@ class TestDomain(unittest.TestCase):
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    def test_get_votes_connection_error(self):
+        err_code = 0
+        vt_domains = VirusTotalAPIDomains(API_KEY)
+        vt_domains.base_url = TEST_BASE_URL
+        try:
+            result = vt_domains.get_votes(TEST_DOMAIN)
+        except VirusTotalAPIError as err:
+            err_code = err.err_code
+        self.assertEqual(err_code, errno.ECONNABORTED)
+
     def test_get_votes_wrong_api_key(self):
         vt_domains_wrong_api_key = VirusTotalAPIDomains('')
         result = vt_domains_wrong_api_key.get_votes(TEST_DOMAIN)
@@ -146,6 +190,16 @@ class TestDomain(unittest.TestCase):
         except VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
+
+    def test_put_votes_connection_error(self):
+        err_code = 0
+        vt_domains = VirusTotalAPIDomains(API_KEY)
+        vt_domains.base_url = TEST_BASE_URL
+        try:
+            result = vt_domains.put_votes(TEST_DOMAIN)
+        except VirusTotalAPIError as err:
+            err_code = err.err_code
+        self.assertEqual(err_code, errno.ECONNABORTED)
 
     def test_put_votes_wrong_api_key(self):
         vt_domains_wrong_api_key = VirusTotalAPIDomains('')
@@ -183,6 +237,16 @@ class TestDomain(unittest.TestCase):
         except VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
+
+    def test_get_relationship_connection_error(self):
+        err_code = 0
+        vt_domains = VirusTotalAPIDomains(API_KEY)
+        vt_domains.base_url = TEST_BASE_URL
+        try:
+            result = vt_domains.get_relationship(TEST_DOMAIN)
+        except VirusTotalAPIError as err:
+            err_code = err.err_code
+        self.assertEqual(err_code, errno.ECONNABORTED)
 
     def test_get_relationship_wrong_api_key(self):
         vt_domains_wrong_api_key = VirusTotalAPIDomains('')

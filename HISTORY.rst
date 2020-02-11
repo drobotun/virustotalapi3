@@ -1,6 +1,14 @@
 Release History
 ===============
 
+1.2.0 (11.02.2020)
+"""""""""""""""""
+
+- Сhanged the structure of files and directories of the module.
+- Added the ``get_download_url()`` and ``get_download()`` functions (``VirusTotalAPIFiles`` class).
+- The ``main()`` function was refactored in ``__main__.py``.
+- Сhanged the structure and composition (added tests for checking functions when the "Connection Error" error occurs) of tests (the value of code coverage by tests is 93%).
+
 1.1.3 (7.02.2020)
 """""""""""""""""
 
