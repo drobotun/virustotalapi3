@@ -1,0 +1,28 @@
+"""Сonstants required for test modules to work
+"""
+API_KEY = '<Insert VirusTotal API key>'
+
+TEST_FILE = 'test_file.txt'
+
+TEST_COMMENTS = 'test_comments'
+
+TEST_FILE_ID_SHA256 = '9b54bb6ed1c5574aeb5343b0c5e9686ab4b68c65bc2b5d408b7ed16499878ad8'
+TEST_FILE_ID_SHA1 = '668a6444cd1e22c70919dd8ff8d871be86944d68'
+TEST_FILE_ID_MD5 = 'e4b681fbffdde3e3f289d39916af6042'
+
+TEST_URL = 'https://xakep.ru/author/drobotun/'
+TEST_URL_ID_BASE64 = 'aHR0cHM6Ly94YWtlcC5ydS9hdXRob3IvZHJvYm90dW4v'
+TEST_URL_ID_SHA256 = '1a565d28f8412c3e4b65ec8267ff8e77eb00a2c76367e653be774169ca9d09a6'
+
+TEST_DOMAIN ='www.virustotal.com'
+
+TEST_IP = '216.239.38.21'
+
+TEST_SANDBOX_ID = '275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f_OS X Sandbox'
+
+TEST_FILE_ID = 'ZTRiNjgxZmJmZmRkZTNlM2YyODlkMzk5MTZhZjYwNDI6MTU3NjYwMTE1Ng=='
+TEST_URL_ID = 'u-dce9e8fbe86b145e18f9dcd4aba6bba9959fdff55447a8f9914eb9c4fc1931f9-1576610003'
+
+TEST_TIMEOUT = 0.01
+
+PRINT_RESULT = False
