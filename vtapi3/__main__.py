@@ -291,9 +291,6 @@ def main(options):
             result = get_file_analyse_report(options.resource, api_key)
         return result
     except vtapi3.VirusTotalAPIError as err:
-        print(err)
-        print('\nTo work correctly, you need the VT_API_KEY environment variable')
-        print('with the current access key to the VirusTotal API functions.')
         return err
 
 if __name__ == '__main__':
