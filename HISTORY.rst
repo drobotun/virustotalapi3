@@ -2,7 +2,7 @@ Release History
 ===============
 
 1.2.0 (11.02.2020)
-"""""""""""""""""
+""""""""""""""""""
 
 - Сhanged the structure of files and directories of the module.
 - Added the ``get_download_url()`` and ``get_download()`` functions (``VirusTotalAPIFiles`` class).
