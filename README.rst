@@ -170,3 +170,8 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 
 .. |POST| image:: https://i.imgur.com/CWgYjh1.png
 .. |GET| image:: https://i.imgur.com/CBcN0Fh.png
+
+
+.. image:: https://api.codacy.com/project/badge/Grade/16183a4d2ad044c39764eacd91f67341
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/manual/drobotun/virustotalapi3?utm_source=github.com&utm_medium=referral&utm_content=drobotun/virustotalapi3&utm_campaign=Badge_Grade_Dashboard
