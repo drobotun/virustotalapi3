@@ -12,8 +12,8 @@ VirusTotal API 3 version
     :target: https://ci.appveyor.com/project/drobotun/virustotalapi3
 .. image:: https://codecov.io/gh/drobotun/virustotalapi3/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/drobotun/virustotalapi3
-.. image:: https://coveralls.io/repos/github/drobotun/virustotalapi3/badge.svg?branch=master
-    :target: https://coveralls.io/github/drobotun/virustotalapi3?branch=master
+.. image:: https://coveralls.io/repos/github/drobotun/virustotalapi3/badge.svg
+    :target: https://coveralls.io/github/drobotun/virustotalapi3
 .. image:: https://img.shields.io/scrutinizer/quality/g/drobotun/virustotalapi3	
 	:target: https://scrutinizer-ci.com/g/drobotun/virustotalapi3/
 .. image:: https://badge.fury.io/py/vtapi3.svg
