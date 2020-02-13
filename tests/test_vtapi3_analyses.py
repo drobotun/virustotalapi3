@@ -1,72 +1,85 @@
+"""
+   VirusTotalAPIAnalyses class testing module.
+
+   Author: Evgeny Drobotun (c) 2020
+   License: MIT (https://github.com/drobotun/virustotalapi3/blob/master/LICENSE)
+
+"""
 import unittest
-import json
 import errno
+from unittest import mock
 
-from vtapi3 import VirusTotalAPI, VirusTotalAPIAnalyses, VirusTotalAPIError
+import requests
+from vtapi3 import VirusTotalAPIAnalyses, VirusTotalAPIError
 
-API_KEY = '<Insert VirusTotal API key>'
-TEST_FILE_ID = 'ZTRiNjgxZmJmZmRkZTNlM2YyODlkMzk5MTZhZjYwNDI6MTU3NjYwMTE1Ng=='
-TEST_URL_ID = 'u-dce9e8fbe86b145e18f9dcd4aba6bba9959fdff55447a8f9914eb9c4fc1931f9-1576610003'
-TEST_TIMEOUT = 0.01
-PRINT_RESULT = False
-TEST_BASE_URL = 'https://www.fgykhjfhgyf.try'
+def get_mock_response(status_code, content):
+    """Mock function for implementing test responses from the server."""
+    test_mock = mock.Mock()
+    test_mock.status_code = status_code
+    test_mock.content = content
+
+    def mock_response(api_url, headers, timeout, proxies):
+        return test_mock
+
+    return mock_response
+
+def raise_connection_error(api_url, headers, timeout, proxies):
+    """Mock function for implementing the ConnectionError exception."""
+    raise requests.exceptions.ConnectionError
+
+def raise_timeout_error(api_url, headers, timeout, proxies):
+    """Mock function for implementing the Timeout exception."""
+    raise requests.exceptions.Timeout
 
 class TestAnalyses(unittest.TestCase):
+    """The class that implements the VirusTotalAPIAnalyses class testing functions."""
 
-    @unittest.skip('The test requires a valid api key')
+    @mock.patch('requests.get', get_mock_response(requests.codes['ok'],
+                'Test VirusTotal contetnt'))
     def test_get_report_file_id(self):
-        vt_analyses = VirusTotalAPIAnalyses(API_KEY)
-        result = vt_analyses.get_report(TEST_FILE_ID)
-        if PRINT_RESULT:
-            result = json.loads(result)
-            print('\nResult: ', json.dumps(result, sort_keys=False, indent=4))
+        """Checking the get_report function when the server responds with the HTTP code 200."""
+        vt_analyses = VirusTotalAPIAnalyses('test_api_key')
+        vt_analyses.get_report('test_object_id')
         http_err = vt_analyses.get_last_http_error()
         self.assertEqual(http_err, vt_analyses.HTTP_OK)
 
-    @unittest.skip('The test requires a valid api key')
-    def test_get_report_url_id(self):
-        vt_analyses = VirusTotalAPIAnalyses(API_KEY)
-        result = vt_analyses.get_report(TEST_URL_ID)
-        if PRINT_RESULT:
-            result = json.loads(result)
-            print('\nResult: ', json.dumps(result, sort_keys=False, indent=4))
-        http_err = vt_analyses.get_last_http_error()
-        self.assertEqual(http_err, vt_analyses.HTTP_OK)
-
-    @unittest.skip('The test requires a valid api key')
+    @mock.patch('requests.get', get_mock_response(requests.codes['not_found'],
+                'Test VirusTotal contetnt'))
     def test_get_report_wrong_object_id(self):
-        vt_analyses = VirusTotalAPIAnalyses(API_KEY)
-        result = vt_analyses.get_report('')
-        if PRINT_RESULT:
-            print('\nResult: ', result)
+        """Checking the get_report function when the server responds with the HTTP code 404."""
+        vt_analyses = VirusTotalAPIAnalyses('test_api_key')
+        vt_analyses.get_report('test_object_id')
         http_err = vt_analyses.get_last_http_error()
         self.assertEqual(http_err, vt_analyses.HTTP_NOT_FOUND_ERROR)
 
+    @mock.patch('requests.get', raise_timeout_error)
     def test_get_report_timeout_error(self):
+        """Checking the get_report function when a Timeout exception occurs."""
         err_code = 0
-        vt_analyses = VirusTotalAPIAnalyses(API_KEY, TEST_TIMEOUT)
+        vt_analyses = VirusTotalAPIAnalyses('test_api_key')
         try:
-            result = vt_analyses.get_report(TEST_FILE_ID)
+            vt_analyses.get_report('test_object_id')
         except VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.ETIMEDOUT)
 
+    @mock.patch('requests.get', raise_connection_error)
     def test_get_report_connection_error(self):
+        """Checking the get_report function when a ConnectionError exception occurs."""
         err_code = 0
-        vt_analyses = VirusTotalAPIAnalyses(API_KEY)
-        vt_analyses.base_url = TEST_BASE_URL
+        vt_analyses = VirusTotalAPIAnalyses('test_api_key')
         try:
-            result = vt_analyses.get_report(TEST_FILE_ID)
+            vt_analyses.get_report('test_object_id')
         except VirusTotalAPIError as err:
             err_code = err.err_code
         self.assertEqual(err_code, errno.ECONNABORTED)
 
+    @mock.patch('requests.get', get_mock_response(requests.codes['unauthorized'],
+                'Test VirusTotal contetnt'))
     def test_get_report_wrong_api_key(self):
-        vt_analyses_wrong_api_key = VirusTotalAPIAnalyses('')
-        result = vt_analyses_wrong_api_key.get_report(TEST_FILE_ID)
-        if PRINT_RESULT:
-            result = json.loads(result)
-            print('\nResult: ', json.dumps(result, sort_keys=False, indent=4))
+        """Checking the get_report function when the server responds with the HTTP code 401."""
+        vt_analyses_wrong_api_key = VirusTotalAPIAnalyses('test_api_key')
+        vt_analyses_wrong_api_key.get_report('test_object_id')
         http_err = vt_analyses_wrong_api_key.get_last_http_error()
         self.assertEqual(http_err, vt_analyses_wrong_api_key.HTTP_AUTHENTICATION_REQUIRED_ERROR)
 

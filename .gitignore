@@ -98,5 +98,6 @@ Icon
 .Trashes
 
 test.bat
+*.txt
 
 OUT
