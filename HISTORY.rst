@@ -1,6 +1,12 @@
 Release History
 ===============
 
+1.2.1 (10.04.2020)
+""""""""""""""""""
+
+- Fixed several bugs
+- Сhanged the structure and composition of tests (the value of code coverage by tests is 99%).
+
 1.2.0 (11.02.2020)
 """"""""""""""""""
 
