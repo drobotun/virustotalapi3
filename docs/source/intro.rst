@@ -142,6 +142,11 @@ Documentation for using this package: https://virustotalapi3.readthedocs.io
 Release History
 ===============
 
+.. rubric:: 1.2.1 (10.04.2020)
+
+- Fixed several bugs
+- Сhanged the structure and composition of tests (the value of code coverage by tests is 99%).
+
 .. rubric:: 1.2.0 (11.02.2020)
 
 - Сhanged the structure of files and directories of the module.
