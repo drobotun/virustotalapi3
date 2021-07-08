@@ -6,7 +6,8 @@ VirusTotal API 3 version
 
 .. image:: https://img.shields.io/github/license/drobotun/virustotalapi3?style=flat
     :target: http://doge.mit-license.org
-
+.. image:: https://travis-ci.com/drobotun/virustotalapi3.svg?branch=master
+    :target: https://travis-ci.com/drobotun/virustotalapi3
 .. image:: https://ci.appveyor.com/api/projects/status/tto83lriiwdkq55q?svg=true
     :target: https://ci.appveyor.com/project/drobotun/virustotalapi3
 .. image:: https://codecov.io/gh/drobotun/virustotalapi3/branch/master/graph/badge.svg
