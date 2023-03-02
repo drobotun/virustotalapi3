@@ -390,7 +390,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         """
         self._last_http_error = None
         self._last_result = None
-        api_url = self.base_url + '/files' + file_id + '/download_url'
+        api_url = self.base_url + '/files/' + file_id + '/download_url'
         try:
             response = requests.get(api_url, headers=self.headers,
                                     timeout=self.timeout, proxies=self.proxies)
@@ -418,7 +418,7 @@ class VirusTotalAPIFiles(VirusTotalAPI):
         """
         self._last_http_error = None
         self._last_result = None
-        api_url = self.base_url + '/files' + file_id + '/download'
+        api_url = self.base_url + '/files/' + file_id + '/download'
         try:
             response = requests.get(api_url, headers=self.headers,
                                     timeout=self.timeout, proxies=self.proxies)
