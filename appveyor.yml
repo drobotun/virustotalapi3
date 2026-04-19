@@ -1,15 +1,26 @@
+build: off
+
 environment:
   matrix:
-    - PYTHON: "C:\\Python36"
-    - PYTHON: "C:\\Python36-x64"
-    - PYTHON: "C:\\Python37"
-    - PYTHON: "C:\\Python37-x64"
-    - PYTHON: "C:\\Python38"
-    - PYTHON: "C:\\Python38-x64"
+    - PYTHON: "C:\\Python39"
+      PYTHON_VERSION: "3.9"
+    - PYTHON: "C:\\Python310"
+      PYTHON_VERSION: "3.10"
+    - PYTHON: "C:\\Python311"
+      PYTHON_VERSION: "3.11"
+
+    - PYTHON: "C:\\Python39"
+      PYTHON_VERSION: "3.9"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python310"
+      PYTHON_VERSION: "3.10"
+      PYTHON_ARCH: "32"
+      
 install:
-  - cmd: "C:\\Python37\\python.exe -m pip install requests"
-build: off
+  - SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+  - pip install requests"
+  
 build_script:
-  - cmd: "C:\\Python37\\python.exe setup.py build"
+  - python setup.py build
 test_script:
-  - cmd: "C:\\Python37\\python.exe setup.py test"
+  - python.exe setup.py test
